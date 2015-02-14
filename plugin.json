@@ -1,0 +1,20 @@
+{
+	"id": "nodebb-plugin-custom-topics",
+	"name": "Custom Topics",
+	"description": "Allows a user to customize its own topics",
+	"url": "https://github.com/Exo-Do/nodebb-plugin-custom-topics",
+	"library": "./lib/library.js",
+	"hooks": [
+		
+	],
+	"staticDirs": {
+		"static": "./static"
+	},
+	"less": [
+    	"./static/style.less"
+    ],
+    "scripts": [
+		"static/client.js"
+	],
+	"templates": "static/templates"
+}
