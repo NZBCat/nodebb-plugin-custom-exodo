@@ -17,7 +17,7 @@
 	var options;
 
 	function init() {
-		
+
 		options = {};
 
 		var topicID = ajaxify.variables.get('topic_id');
@@ -44,6 +44,8 @@
 		}, function (err, topicOptions) {
 			if (topicOptions) {
 				options = topicOptions;
+				options.headerImage = sanitize(options.headerImage);
+				options.brandColor = sanitize(options.brandColor);
 				loadCustomizations(options);
 			}
 		});
@@ -53,7 +55,7 @@
 	 * Cargar las personalizaciones elegidas.
 	 */
 	function loadCustomizations(options) {
-		
+
 		$('.topic').addClass('custom-topic');
 
 		/* Imagen de la cabecera */
@@ -64,13 +66,12 @@
 				$header = $('<div class="custom-topic-header"></div>');
 				$('.topic').prepend($header).addClass('with-custom-header');
 			}
-			
+
 			$header.css('background', BACKGROUND_PROPERTY.replace('{url}', options.headerImage));
 		}
 
 
 		/* Inyectamos estilos */
-
 		$('#custom-topic-style').remove();
 		var style = document.createElement('style');
 		style.type = 'text/css';
@@ -107,7 +108,9 @@
 
 			var preview = dialog.find('.topic-preview');
 
-			preview.find('.topic-preview-header').css('background', BACKGROUND_PROPERTY.replace('{url}', options.headerImage));
+			if (options.headerImage) {
+				preview.find('.topic-preview-header').css('background', BACKGROUND_PROPERTY.replace('{url}', options.headerImage));
+			}
 			preview.find('.topic-preview-post-title').css('background', options.brandColor);
 
 			dialog.find('#header-image-input').keyup(function () {
@@ -165,8 +168,8 @@
 					label: 'Aceptar',
 					className: 'btn-primary',
 					callback: function (e) {
-						options.headerImage = $('#header-image-input').val();
-						options.brandColor = $('#brand-color-input').val();
+						options.headerImage = sanitize($('#header-image-input').val());
+						options.brandColor = sanitize($('#brand-color-input').val());
 						options.hideTitle = $('#hide-title-check').get(0).checked;
 						saveCustomizations(options);
 						return loadCustomizations(options);
@@ -174,6 +177,10 @@
 				}
 			}
 		});
+	}
+
+	function sanitize(val) {
+		return val && val.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 	}
 
 	function saveCustomizations(options) {
