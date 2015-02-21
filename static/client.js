@@ -85,6 +85,7 @@
 			style.textContent += '.custom-topic .post_reply span {background: {color}}';
 			style.textContent += '.custom-topic .pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
 			style.textContent += '.custom-topic .pagination a, .custom-topic .pagination a:hover {color: {color};}';
+			style.textContent += '.custom-topic .post-row .post-details .post-block .post-content .spoiler {border-left-color: {color};}';
 			style.textContent = style.textContent.replace(/\{color\}/g, options.brandColor);
 		}
 
