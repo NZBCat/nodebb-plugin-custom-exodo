@@ -187,6 +187,27 @@
 		socket.emit('topics.saveCustomization', {
 			tid: ajaxify.variables.get('topic_id'),
 			options: options
+		}, function(err, r){
+			if(!err)
+			{
+				app.alert({
+					type: 'success',
+					timeout: 3000,
+					title: 'Guardado!',
+					message: "Personalización guardada!",
+					alert_id: 'customization_ok'
+				});
+			}
+			else
+			{
+				app.alert({
+					type: 'danger',
+					timeout: 3000,
+					title: 'Error',
+					message: "Hubo un error al guardar! Asegurate de que sea una imagen y de que no exceda un tamaño de 300KB",
+					alert_id: 'customization_error'
+				});
+			}
 		});
 	}
 

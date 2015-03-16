@@ -21,7 +21,7 @@
 		<span class="input-group-addon" id="header-image-loading"><i class="fa fa-globe"></i></span>
 	</div>
 	<div class="alert alert-warning">
-		<p><b>Resoluci&oacute;n recomendada:</b> 1920x400px | <b>Tama&ntilde;o m&aacute;ximo recomendado:</b> 300KB</p>
+		<p><b>Resoluci&oacute;n recomendada:</b> 1920x400px | <b>Tama&ntilde;o m&aacute;ximo permitido:</b> 300KB</p>
 		<p>Una imagen demasiado pesada podr&iacute;a afectar a la navegaci&oacute;n de los usuarios que entren en tu hilo</p>
 	</div>
 </div>
@@ -34,6 +34,6 @@
 
 <div class="form-group">
 	<label for="brand-color-input">Color principal</label>
-	<input type="text" value="{brand_color}" class="form-control" id="brand-color-input" placeholder="Ej. #CF246A">
+	<input type="color" value="{brand_color}" class="form-control" id="brand-color-input" placeholder="Ej. #CF246A">
 	<span class="help-block">Color que se aplicar&aacute; a botones y posts</span>
 </div>
