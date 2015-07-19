@@ -12,7 +12,6 @@
 		loadUserCustomization();
 		if ($('.topic').length){
 			init();
-			getUserCustomization();
 		}
 		else
 		{
