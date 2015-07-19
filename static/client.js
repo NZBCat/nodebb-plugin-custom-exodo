@@ -12,9 +12,11 @@
 		loadUserCustomization();
 		if ($('.topic').length){
 			init();
+			getUserCustomization();
 		}
 		else
 		{
+			options = {};
 			var $button = $('<button class="btn btn-sm btn-default customize-topic hidden-xs" title="Personalizar"><i class="fa fa-paint-brush fa-lg"></i></button>');
 			$('#content').append($button);
 			$button.tooltip({
@@ -100,19 +102,22 @@
 			style.textContent += '.custom-topic .post-row .post-header {background: {color}; border-color: {color};}';
 			style.textContent += '.custom-topic a {color: {color}}';
 			style.textContent += '.custom-topic .username-field {color: {color} !important}';
-			style.textContent += '.custom-topic .post_reply span {background: {color}}';
+			style.textContent += '.custom-topic .btn-exodo span {background: {color}}';
 			style.textContent += '.custom-topic .pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
 			style.textContent += '.custom-topic .pagination a, .custom-topic .pagination a:hover {color: {color};}';
 			
 			// Elementos del resto del foro
-			style.textContent += '.tag-topic-count {background: {color}; border-color: {color};}';
-			style.textContent += '.tag-item {background: {color}; border-color: {color};}';
-			style.textContent += '.category .category-topics .threadlisthead {background: {color}; border-color: {color};}';
-			style.textContent += '.pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
-			style.textContent += '.pagination a, .pagination a:hover {color: {color};}';
-			style.textContent += 'body a {color: {color}}';
-			style.textContent += '.panel-default > .panel-heading {background: {color}; border-color: {color};}';
-			style.textContent += '.btn-exodo span {background: {color}}';
+			if(localStorage.userCustomization)
+			{
+				style.textContent += '.tag-topic-count {background: {color}; border-color: {color};}';
+				style.textContent += '.tag-item {background: {color}; border-color: {color};}';
+				style.textContent += '.category .category-topics .threadlisthead {background: {color}; border-color: {color};}';
+				style.textContent += '.pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
+				style.textContent += '.pagination a, .pagination a:hover {color: {color};}';
+				style.textContent += 'body a {color: {color}}';
+				style.textContent += '.panel-default > .panel-heading {background: {color}; border-color: {color};}';
+				style.textContent += '.btn-exodo span {background: {color}}';
+			}
 
 			style.textContent = style.textContent.replace(/\{color\}/g, options.brandColor);
 		}

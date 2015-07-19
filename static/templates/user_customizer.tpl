@@ -16,7 +16,7 @@
 
 <div class="form-group">
 	<div class="checkbox" style="padding: 0;">
-		<input type="checkbox" style="margin: 2px 4px 0px 0px;" id="hide-title-check" <!-- IF hide_title -->checked<!-- ENDIF hide_title -->/> Ocultar t&iacute;tulo del hilo
+		<input type="checkbox" style="margin: 2px 4px 0px 0px;" id="hide-title-check" <!-- IF hide_title -->checked<!-- ENDIF hide_title -->/> <p style="margin: 2px 4px 0px 20px;">Ocultar t&iacute;tulo del hilo</p>
 	</div>
 </div>
 
