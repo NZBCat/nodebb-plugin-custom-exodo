@@ -116,9 +116,35 @@
 				style.textContent += 'body a {color: {color}}';
 				style.textContent += '.panel-default > .panel-heading {background: {color}; border-color: {color};}';
 				style.textContent += '.btn-exodo span {background: {color}}';
+				style.textContent += '.loading-bar {background: {color}}';
+				style.textContent += '.category .category-topics .category-item .topic-row .threadinfo>small a {color: {color}}';
+				style.textContent += '.category .category-topics .category-item .topic-row .threadlastpost a.lastpost {color: {color}}';
+
+				style.textContent += 'body {color: {textcolor}}';
+
+				style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {bgcolor}}';
+				style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {bgcolor}}';
+				style.textContent += '.posts .post-details {background: {bgcolor}}';
+				style.textContent += '.posts .post-wrapper {background: {bgcolor}}';
+				style.textContent += '.posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
+				style.textContent += '.posts .post-wrapper .post-info {background: {bgcolor}}';
+				style.textContent += '.topic .posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
+				style.textContent += '.posts .post-signature {background: {bgcolor}}';
+				style.textContent += '.panel-body {background: {bgcolor}}';
+				style.textContent += '.panel {background: {bgcolor}}';
+				style.textContent += '.category-item.pinned .topic-row {background: {bgcolor}}';
+				style.textContent += '.category .category-topics .threadlisthead .category-item .topic-row {background: {bgcolor};}';
+
+				style.textContent += 'body {font-family: {fontfamily}}';
+				/*style.textContent += 'p {font-family: {fontfamily}}';
+				style.textContent += 'a {font-family: {fontfamily}}';
+				style.textContent += 'i {font-family: {fontfamily}}';*/
 			}
 
 			style.textContent = style.textContent.replace(/\{color\}/g, options.brandColor);
+			style.textContent = style.textContent.replace(/\{textcolor\}/g, options.textColor);
+			style.textContent = style.textContent.replace(/\{bgcolor\}/g, options.backgroundColor);
+			style.textContent = style.textContent.replace(/\{fontfamily\}/g, options.font);
 		}
 
 		/* Ocultar titulo */
@@ -278,6 +304,15 @@
 		Guardar personalizacion de usuario
 	*/
 	function saveUserCustomizations(options) {
+		if(options)
+		{
+			localStorage.setItem("userCustomization", JSON.stringify(options));
+		}
+		else
+		{
+			localStorage.removeItem("userCustomization");
+		}
+
 		socket.emit('topics.saveUserCustomization', {
 			options: options
 		}, function(err, r){
@@ -310,10 +345,18 @@
 		Mostrar dialogo para guardar y elegir personalizacion del foro
 	*/
 	function openUserCustomizeWindow() {
+		options = {};
+		if(localStorage.userCustomization)
+		{
+			options = JSON.parse(localStorage.userCustomization);
+		}
 		window.templates.parse('user_customizer', {
 			topic_title: "Titulo",
 			brand_color: options.brandColor || '',
-			hide_title: options.hideTitle || false
+			hide_title: options.hideTitle || false,
+			background_color: options.backgroundColor || '',
+			text_color: options.textColor || '',
+			font_family: options.font || ''
 		}, function (template) {
 
 			var dialog = buildUserCustomizationDialog(template);
@@ -371,9 +414,18 @@
 			title: 'Personalizar',
 			message: template,
 			buttons: {
+				"default": {
+					label: 'Usar colores por defecto',
+					className: 'btn-default',
+					callback: function (e) {
+						saveUserCustomizations(null);
+						getUserCustomization();
+						return $("#custom-topic-style").remove();
+					}
+				},
 				cancel: {
 					label: 'Cancelar',
-					className: 'btn-default',
+					className: 'btn-danger',
 					callback: function (e) {
 						getUserCustomization();
 						return true;
@@ -385,6 +437,9 @@
 					callback: function (e) {
 						options.headerImage = sanitize($('#header-image-input').val());
 						options.brandColor = sanitize($('#brand-color-input').val());
+						options.textColor = sanitize($('#text-color-input').val());
+						options.backgroundColor = sanitize($('#background-color-input').val());
+						options.font = sanitize($('#font-family-input').val());
 						options.hideTitle = $('#hide-title-check').get(0).checked;
 						saveUserCustomizations(options);
 						return getUserCustomization();
