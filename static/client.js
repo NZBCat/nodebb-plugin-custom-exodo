@@ -13,7 +13,7 @@
 		if ($('.topic').length){
 			init();
 		}
-		else
+		else if(!$("#profile").length)
 		{
 			options = {};
 			var $button = $('<button class="btn btn-sm btn-default customize-topic hidden-xs" title="Personalizar"><i class="fa fa-paint-brush fa-lg"></i></button>');
@@ -24,6 +24,10 @@
 			$button.click(function () {
 				openUserCustomizeWindow();
 			});
+		}
+		else
+		{
+			getUserCustomization();
 		}
 	});
 
@@ -108,19 +112,25 @@
 			// Elementos del resto del foro
 			if(localStorage.userCustomization)
 			{
+				// Gradiente linear-gradient(to right, {color} 0px, {color2} 100%)
 				style.textContent += '.tag-topic-count {background: {color}; border-color: {color};}';
 				style.textContent += '.tag-item {background: {color}; border-color: {color};}';
-				style.textContent += '.category .category-topics .threadlisthead {background: {color}; border-color: {color};}';
 				style.textContent += '.pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
 				style.textContent += '.pagination a, .pagination a:hover {color: {color};}';
 				style.textContent += 'body a {color: {color}}';
-				style.textContent += '.panel-default > .panel-heading {background: {color}; border-color: {color};}';
 				style.textContent += '.btn-exodo span {background: {color}}';
-				style.textContent += '.loading-bar {background: {color}}';
+				style.textContent += '.loading-bar {background: linear-gradient(to right, {color} 0px, {color2} 100%)}';
+
+				// headers con degradados
 				style.textContent += '.category .category-topics .category-item .topic-row .threadinfo>small a {color: {color}}';
 				style.textContent += '.category .category-topics .category-item .topic-row .threadlastpost a.lastpost {color: {color}}';
+				style.textContent += '.panel-default > .panel-heading {background:linear-gradient(to right, {color} 0px, {color2} 100%); border-color: {color};}';
+				style.textContent += '.category .category-topics .threadlisthead {background:linear-gradient(to right, {color} 0px, {color2} 100%); border-color: {color};}';
+				style.textContent += '.custom-topic .post-row .post-header {background:linear-gradient(to right, {color} 0px, {color2} 100%); border-color: {color};}';
 
 				style.textContent += 'body {color: {textcolor}}';
+				style.textContent += '.category .category-head .category-head-top h1 {color: {color}}';
+				style.textContent += 'html {background: {bgcolor}}';
 
 				style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {bgcolor}}';
 				style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {bgcolor}}';
@@ -134,6 +144,7 @@
 				style.textContent += '.panel {background: {bgcolor}}';
 				style.textContent += '.category-item.pinned .topic-row {background: {bgcolor}}';
 				style.textContent += '.category .category-topics .threadlisthead .category-item .topic-row {background: {bgcolor};}';
+				style.textContent += '.topic .posts .post-wrapper .post-details {background: {bgcolor}}';
 
 				style.textContent += 'body {font-family: {fontfamily}}';
 				/*style.textContent += 'p {font-family: {fontfamily}}';
@@ -142,6 +153,7 @@
 			}
 
 			style.textContent = style.textContent.replace(/\{color\}/g, options.brandColor);
+			style.textContent = style.textContent.replace(/\{color2\}/g, options.brandColor2);
 			style.textContent = style.textContent.replace(/\{textcolor\}/g, options.textColor);
 			style.textContent = style.textContent.replace(/\{bgcolor\}/g, options.backgroundColor);
 			style.textContent = style.textContent.replace(/\{fontfamily\}/g, options.font);
@@ -353,6 +365,7 @@
 		window.templates.parse('user_customizer', {
 			topic_title: "Titulo",
 			brand_color: options.brandColor || '',
+			brand_color2: options.brandColor2 || '',
 			hide_title: options.hideTitle || false,
 			background_color: options.backgroundColor || '',
 			text_color: options.textColor || '',
@@ -437,6 +450,7 @@
 					callback: function (e) {
 						options.headerImage = sanitize($('#header-image-input').val());
 						options.brandColor = sanitize($('#brand-color-input').val());
+						options.brandColor2 = sanitize($('#brand-color2-input').val());
 						options.textColor = sanitize($('#text-color-input').val());
 						options.backgroundColor = sanitize($('#background-color-input').val());
 						options.font = sanitize($('#font-family-input').val());

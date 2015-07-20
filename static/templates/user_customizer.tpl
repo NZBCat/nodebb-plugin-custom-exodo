@@ -24,6 +24,9 @@
 	<label for="brand-color-input">Color principal</label>
 	<input type="color" value="{brand_color}" class="form-control" id="brand-color-input" placeholder="Ej. #CF246A">
 
+	<label for="brand-color2-input">Color secundario (degradado)</label>
+	<input type="color" value="{brand_color2}" class="form-control" id="brand-color2-input" placeholder="Ej. #CF246A">
+
 	<label for="brand-color-input">Color del texto</label>
 	<input type="color" value="{text_color}" class="form-control" id="text-color-input" placeholder="Ej. #CF246A">
 
