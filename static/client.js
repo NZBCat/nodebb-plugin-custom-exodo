@@ -130,7 +130,7 @@
 
 				style.textContent += 'body {color: {textcolor}}';
 				style.textContent += '.category .category-head .category-head-top h1 {color: {color}}';
-				style.textContent += 'html {background: {bgcolor}}';
+				style.textContent += 'html {background: {bgcolor2}}';
 
 				style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {bgcolor}}';
 				style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {bgcolor}}';
@@ -147,6 +147,7 @@
 				style.textContent += '.topic .posts .post-wrapper .post-details {background: {bgcolor}}';
 
 				style.textContent += 'body {font-family: {fontfamily}}';
+				style.textContent += 'body {font-size: {fontsize}px}';
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
 				style.textContent += 'i {font-family: {fontfamily}}';*/
@@ -156,7 +157,9 @@
 			style.textContent = style.textContent.replace(/\{color2\}/g, options.brandColor2);
 			style.textContent = style.textContent.replace(/\{textcolor\}/g, options.textColor);
 			style.textContent = style.textContent.replace(/\{bgcolor\}/g, options.backgroundColor);
+			style.textContent = style.textContent.replace(/\{bgcolor2\}/g, options.backgroundColor2);
 			style.textContent = style.textContent.replace(/\{fontfamily\}/g, options.font);
+			style.textContent = style.textContent.replace(/\{fontsize\}/g, options.fontSize);
 		}
 
 		/* Ocultar titulo */
@@ -297,6 +300,10 @@
 				loadCustomizations(options);
 				localStorage.setItem("userCustomization", JSON.stringify(options));
 			}
+			else
+			{
+				localStorage.removeItem("userCustomization");
+			}
 		});
 	}
 	function loadUserCustomization()
@@ -364,12 +371,14 @@
 		}
 		window.templates.parse('user_customizer', {
 			topic_title: "Titulo",
-			brand_color: options.brandColor || '',
-			brand_color2: options.brandColor2 || '',
+			brand_color: options.brandColor || '#CF246A',
+			brand_color2: options.brandColor2 || '#FF942E',
 			hide_title: options.hideTitle || false,
-			background_color: options.backgroundColor || '',
-			text_color: options.textColor || '',
-			font_family: options.font || ''
+			background_color: options.backgroundColor || '#f6f6f6',
+			background_color2: options.backgroundColor2 || '#f6f6f6',
+			text_color: options.textColor || '#2e3539',
+			font_family: options.font || '"Open Sans",sans-serif',
+			font_size: options.fontSize || '13'
 		}, function (template) {
 
 			var dialog = buildUserCustomizationDialog(template);
@@ -453,7 +462,9 @@
 						options.brandColor2 = sanitize($('#brand-color2-input').val());
 						options.textColor = sanitize($('#text-color-input').val());
 						options.backgroundColor = sanitize($('#background-color-input').val());
+						options.backgroundColor2 = sanitize($('#background-color-input2').val());
 						options.font = sanitize($('#font-family-input').val());
+						options.fontSize = sanitize($('#font-size-input').val());
 						options.hideTitle = $('#hide-title-check').get(0).checked;
 						saveUserCustomizations(options);
 						return getUserCustomization();

@@ -1,16 +1,7 @@
 <p class="text-center">
-	Mejora el aspecto del foro personalizando la cabecera y los colores del mismo.
+	Mejora el aspecto del foro personalizando los colores del mismo.
 </p>
 <hr>
-
-<div class="topic-preview">
-	<div class="topic-preview-header">
-		<h4 class="topic-preview-title <!-- IF hide_title -->hide<!-- ENDIF hide_title -->">{topic_title}</h4>
-		<div class="topic-preview-post">
-			<div class="topic-preview-post-title"></div>
-		</div>
-	</div>
-</div>
 
 <h4>Opciones</h4>
 
@@ -30,10 +21,16 @@
 	<label for="brand-color-input">Color del texto</label>
 	<input type="color" value="{text_color}" class="form-control" id="text-color-input" placeholder="Ej. #CF246A">
 
-	<label for="brand-color-input">Color de fondo</label>
+	<label for="brand-color-input">Color de fondo (mensajes)</label>
 	<input type="color" value="{background_color}" class="form-control" id="background-color-input" placeholder="Ej. #CF246A">
+
+	<label for="brand-color-input">Color de fondo (foro)</label>
+	<input type="color" value="{background_color2}" class="form-control" id="background-color-input2" placeholder="Ej. #CF246A">
 
 	<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>
 	<input type="text" value="{font_family}" class="form-control" id="font-family-input" placeholder="Ej. arial">
+
+	<label for="brand-color-input">Tamaño de letra</label>
+	<input type="text" value="{font_size}" class="form-control" id="font-size-input" placeholder="Ej. arial">
 
 </div>
