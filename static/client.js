@@ -466,6 +466,11 @@
 						options.font = sanitize($('#font-family-input').val());
 						options.fontSize = sanitize($('#font-size-input').val());
 						options.hideTitle = $('#hide-title-check').get(0).checked;
+
+						// check font size
+						options.fontSize = options.fontSize > 28 ? 28 : options.fontSize;
+						options.fontSize = options.fontSize < 8 ? 8 : options.fontSize;
+
 						saveUserCustomizations(options);
 						return getUserCustomization();
 					}

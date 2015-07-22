@@ -31,6 +31,6 @@
 	<input type="text" value="{font_family}" class="form-control" id="font-family-input" placeholder="Ej. arial">
 
 	<label for="brand-color-input">Tamaño de letra</label>
-	<input type="text" value="{font_size}" class="form-control" id="font-size-input" placeholder="Ej. arial">
+	<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="Ej. arial">
 
 </div>
