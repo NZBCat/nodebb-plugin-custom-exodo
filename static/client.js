@@ -13,14 +13,15 @@
 		if ($('.topic').length){
 			init();
 		}
-		else if(!$("#profile").length)
+		if(!$("#personalizar").length)
 		{
 			options = {};
-			var $button = $('<button class="btn btn-sm btn-default customize-topic hidden-xs" title="Personalizar"><i class="fa fa-paint-brush fa-lg"></i></button>');
-			$('#content').append($button);
-			$button.tooltip({
+			var $button = $('<li id="personalizar"><a href="#"><i class="fa fa-paint-brush"></i><span> Personalizar</span></a></li>');
+			//$('#user-control-list').append($button);
+			$button.insertBefore($("#logout-link"));
+			/*$button.tooltip({
 				placement: 'left'
-			});
+			});*/
 			$button.click(function () {
 				openUserCustomizeWindow();
 			});
