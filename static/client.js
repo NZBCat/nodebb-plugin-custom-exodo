@@ -146,7 +146,7 @@
 
 				style.textContent += 'body {font-family: {fontfamily}}';
 				style.textContent += 'body {font-size: {fontsize}px}';
-				
+
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
 				style.textContent += 'i {font-family: {fontfamily}}';*/
@@ -370,8 +370,8 @@
 		}
 		window.templates.parse('user_customizer', {
 			topic_title: "Titulo",
-			brand_color: options.brandColor || '#CF246A',
-			brand_color2: options.brandColor2 || '#FF942E',
+			brand_color: options.brandColor || '#333',
+			brand_color2: options.brandColor2 || '#333',
 			hide_title: options.hideTitle || false,
 			background_color: options.backgroundColor || '#f6f6f6',
 			background_color2: options.backgroundColor2 || '#f6f6f6',
