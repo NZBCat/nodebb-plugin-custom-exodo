@@ -25,9 +25,6 @@
 			$button.click(function () {
 				openUserCustomizeWindow();
 			});
-		}
-		else
-		{
 			getUserCustomization();
 		}
 	});
@@ -105,8 +102,8 @@
 			// Elementos de un topic
 			style.textContent += '.custom-topic .post-row .post-header {background: {color}; border-color: {color};}';
 			style.textContent += '.custom-topic a {color: {color}}';
-			style.textContent += '.custom-topic .username-field {color: {color} !important}';
-			style.textContent += '.custom-topic .btn-exodo span {background: {color}}';
+			style.textContent += '.custom-topic .username-field {color: {textcolor} !important}';
+			style.textContent += '.custom-topic .btn-exodo .exright {background: {color}}';
 			style.textContent += '.custom-topic .pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
 			style.textContent += '.custom-topic .pagination a, .custom-topic .pagination a:hover {color: {color};}';
 			
@@ -119,7 +116,7 @@
 				style.textContent += '.pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
 				style.textContent += '.pagination a, .pagination a:hover {color: {color};}';
 				style.textContent += 'body a {color: {color}}';
-				style.textContent += '.btn-exodo span {background: {color}}';
+				style.textContent += '.btn-exodo .exright {background: {color}}';
 				style.textContent += '.loading-bar {background: linear-gradient(to right, {color} 0px, {color2} 100%)}';
 
 				// headers con degradados
@@ -149,6 +146,7 @@
 
 				style.textContent += 'body {font-family: {fontfamily}}';
 				style.textContent += 'body {font-size: {fontsize}px}';
+				
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
 				style.textContent += 'i {font-family: {fontfamily}}';*/
