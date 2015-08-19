@@ -128,7 +128,6 @@
 
 				style.textContent += 'body {color: {textcolor}}';
 				style.textContent += '.category .category-head .category-head-top h1 {color: {color}}';
-				style.textContent += 'html {background: {bgcolor2}}';
 
 				style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {bgcolor}}';
 				style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {bgcolor}}';
@@ -146,6 +145,13 @@
 
 				style.textContent += 'body {font-family: {fontfamily}}';
 				style.textContent += 'body {font-size: {fontsize}px}';
+
+				style.textContent += '.ribbon-green a {color: white}';
+
+				if(options.backgroundColor2 != "")
+				{
+					style.textContent += 'html {background: {bgcolor2}}';
+				}
 
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
