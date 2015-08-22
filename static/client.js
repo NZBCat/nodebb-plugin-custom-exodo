@@ -106,6 +106,7 @@
 			style.textContent += '.custom-topic .btn-exodo .exright {background: {color}}';
 			style.textContent += '.custom-topic .pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
 			style.textContent += '.custom-topic .pagination a, .custom-topic .pagination a:hover {color: {color};}';
+			style.textContent += '.ribbon-green a {color: white}';
 			
 			// Elementos del resto del foro
 			if(localStorage.userCustomization)
