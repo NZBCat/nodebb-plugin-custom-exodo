@@ -265,7 +265,7 @@
 
 	function saveCustomizations(options) {
 		socket.emit('topics.saveCustomization', {
-			tid: ajaxify.data.tid,
+			tid: ajaxify.variables.get('topic_id'),
 			options: options
 		}, function(err, r){
 			if(!err)
