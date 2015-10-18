@@ -10,9 +10,11 @@
 	$(window).on('action:ajaxify.contentLoaded', function () {
 		// Siempre cargamos la personalizacion del usuario, si el topic tiene una porpia la sobreescribira luego
 		loadUserCustomization();
+
 		if ($('.topic').length){
 			init();
 		}
+
 		if(!$("#personalizar").length)
 		{
 			options = {};
@@ -39,14 +41,15 @@
 	function init() {
 
 		options = {};
-
-		var topicID = ajaxify.variables.get('topic_id');
+		var topicID = ajaxify.data.tid;
 
 		/* Añadimos un botón al header para que el usuario pueda empezar a personalizar (Si es administrador o el creador del hilo) */
 		socket.emit('topics.canCustomize', {
 			tid: topicID
 		}, function (err, canCustomize) {
+
 			if (canCustomize) {
+
 				var $button = $('<button class="btn btn-sm btn-default customize-topic hidden-xs" title="Personalizar"><i class="fa fa-paint-brush fa-lg"></i></button>');
 				$('.topic').append($button);
 				$button.tooltip({
@@ -59,9 +62,7 @@
 		});
 
 		/* Comprobamos si el hilo actual tiene alguna personalización */
-		socket.emit('topics.getCustomization', {
-			tid: topicID
-		}, function (err, topicOptions) {
+		socket.emit('topics.getCustomization', {tid: topicID}, function (err, topicOptions) {
 			if (topicOptions) {
 				options = topicOptions;
 				options.headerImage = sanitize(options.headerImage);
@@ -177,12 +178,17 @@
 	}
 
 	function openCustomizeWindow() {
-		window.templates.parse('topic_customizer', {
-			topic_title: ajaxify.variables.get('topic_name'),
+
+		var templateData = {
+			topic_title: ajaxify.data.title,
 			header_image: options.headerImage || '',
 			brand_color: options.brandColor || '',
 			hide_title: options.hideTitle || false
-		}, function (template) {
+		};
+
+
+
+		window.templates.parse('topic_customizer', templateData, function (template) {
 
 			var dialog = buildDialog(template);
 
@@ -264,8 +270,9 @@
 	}
 
 	function saveCustomizations(options) {
+
 		socket.emit('topics.saveCustomization', {
-			tid: ajaxify.variables.get('topic_id'),
+			tid: ajaxify.data.tid,
 			options: options
 		}, function(err, r){
 			if(!err)
@@ -320,6 +327,7 @@
 		}
 		else
 		{
+			
 			options = JSON.parse(localStorage.userCustomization);
 			loadCustomizations(options);
 		}
