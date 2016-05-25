@@ -15,10 +15,11 @@
 		}
 		if(!$("#personalizar").length)
 		{
+			console.log("test");
 			options = {};
 			var $button = $('<li id="personalizar"><a href="#"><i class="fa fa-paint-brush"></i><span> Personalizar</span></a></li>');
 			//$('#user-control-list').append($button);
-			$button.insertBefore($("#logout-link"));
+			$button.insertBefore($("[component='user/logout']"));
 			/*$button.tooltip({
 				placement: 'left'
 			});*/
@@ -40,7 +41,7 @@
 
 		options = {};
 
-		var topicID = ajaxify.variables.get('topic_id');
+		var topicID = ajaxify.data.tid;
 
 		/* Añadimos un botón al header para que el usuario pueda empezar a personalizar (Si es administrador o el creador del hilo) */
 		socket.emit('topics.canCustomize', {
@@ -107,7 +108,7 @@
 			style.textContent += '.custom-topic .pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
 			style.textContent += '.custom-topic .pagination a, .custom-topic .pagination a:hover {color: {color};}';
 			style.textContent += '.ribbon-green a {color: white}';
-			
+
 			// Elementos del resto del foro
 			if(localStorage.userCustomization)
 			{
@@ -178,7 +179,7 @@
 
 	function openCustomizeWindow() {
 		window.templates.parse('topic_customizer', {
-			topic_title: ajaxify.variables.get('topic_name'),
+			topic_title: ajaxify.data.title,
 			header_image: options.headerImage || '',
 			brand_color: options.brandColor || '',
 			hide_title: options.hideTitle || false
@@ -265,7 +266,7 @@
 
 	function saveCustomizations(options) {
 		socket.emit('topics.saveCustomization', {
-			tid: ajaxify.variables.get('topic_id'),
+			tid: ajaxify.data.tid,
 			options: options
 		}, function(err, r){
 			if(!err)
