@@ -278,7 +278,7 @@
 				var dialog = buildUserCustomizationDialog(template);
 
 			});
-
+			user_options = {};
 		}
 		else {
 			user_options = {};
