@@ -34,3 +34,10 @@
 	<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="Ej. arial">
 
 </div>
+
+<div class="form-group">
+
+	<label for="brand-color-input">Exocode</label>
+	<input type="text" min="8" max="300" value="{code}" class="form-control" id="code" placeholder="your share code">
+
+</div>
