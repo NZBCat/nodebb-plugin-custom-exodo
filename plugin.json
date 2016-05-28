@@ -5,7 +5,7 @@
 	"url": "https://github.com/Exo-Do/nodebb-plugin-custom-topics",
 	"library": "./lib/library.js",
 	"hooks": [
-		
+		{ "hook": "action:user.set", "method": "myMethod" }
 	],
 	"staticDirs": {
 		"static": "./static"

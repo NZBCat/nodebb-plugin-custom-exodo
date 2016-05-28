@@ -8,7 +8,8 @@
 
 		brandColor: '',
 		headerImage: '',
-		hideTitle: false
+		hideTitle: false,
+    usecode: false
  };
 
 (function () {
@@ -17,6 +18,13 @@
 
 	/* Este el único hook que he encontrado que se ejecuta lo suficientemente pronto sin pasarse, pero es genérico, por lo que comprobamos que estamos dentro de un Topic */
 	$(window).on('action:ajaxify.contentLoaded', function () {
+
+
+	/*	socket.emit('modules.test', {data: "Some data"}, function(err, result) {
+    alert(result);
+		});
+*/
+
 
 		// Siempre cargamos la personalizacion del usuario, si el topic tiene una porpia la sobreescribira luego
 		loadUserStorage();
@@ -49,13 +57,11 @@
 	{
 		if(!localStorage.userCustomization)
 		{
-			console.log("storage vacio");
-			getUserCustomization(user_options);
+		    getUserCustomization();
 		}
 		else
 		{
 			if ( JSON.parse(localStorage.userCustomization) !== undefined) {
-				console.log("cargamos storage");
 				user_options = JSON.parse(localStorage.userCustomization);
 			}
 			//aplicamos en el tema
@@ -63,30 +69,7 @@
 		}
 	}
 
-	/* Carga las opciones de personalizacion del usuario para el foro en general */
-	function getUserCustomization() {
-		console.log("entramos en el getuser");
-		console.log(user_options);
-		// Obtenemos la personalizacion
-		socket.emit('topics.getUserCustomization', {}, function (err, topicOptions) {
-			//console.log(topicOptions);
-			if (topicOptions) {
-				//console.log("entramos if");
-				//user_options = topicOptions;
-				//console.log("despues de asignar topicoptions");
-				//console.log(user_options);
-				//options.headerImage = null;
-				//options.brandColor = sanitize(options.brandColor);
-				setUserCustomization();
-				localStorage.setItem("userCustomization", JSON.stringify(user_options));
-			}
-			else
-			{
-				console.log("borrado");
-				localStorage.removeItem("userCustomization");
-			}
-		});
-	}
+
 
 	function setUserCustomization() {
 
@@ -176,10 +159,36 @@
 	}
 
 
+
+  /* Carga las opciones de personalizacion del usuario para el foro en general */
+  function getUserCustomization() {
+    //console.log("entramos en el getuser");
+    //console.log(user_options);
+    // Obtenemos la personalizacion
+    socket.emit('topics.getUserCustomization', {}, function (err, topicOptions) {
+    if (topicOptions) {
+        topicOptions= JSON.parse(topicOptions);
+        console.log(topicOptions);
+        user_options = topicOptions;
+        //user_options.headerImage = null;
+        //user_options.usecode = false;
+        //user_options.brandColor = sanitize(user_options.brandColor);
+        setUserCustomization();
+        localStorage.setItem("userCustomization", JSON.stringify(user_options));
+      }
+      else
+      {
+        console.log("borrado");
+        localStorage.removeItem("userCustomization");
+      }
+    });
+  }
+
 	/* Guardar personalizacion de usuario */
 	function saveUserCustomization(savedata) {
-		console.log("datos a guardar");
-		console.log(savedata);
+		//console.log("datos a guardar");
+		//console.log(savedata);
+
 		if(savedata)
 		{
 			console.log("guardamos");
@@ -190,6 +199,7 @@
 			console.log("borramos");
 			localStorage.removeItem("userCustomization");
 		}
+
 
 		socket.emit('topics.saveUserCustomization', {
 			options: savedata
@@ -217,11 +227,12 @@
 		});
 	}
 
+/* saves the code on a variable */
 	function make_code(codigo){
 		var codigo_unico = {};
 		var temp = codigo.split('#');
-		console.log("codigo spliteado");
-		console.log(temp);
+		//console.log("codigo spliteado");
+		//console.log(temp);
 		codigo_unico.brandColor = '#' + temp[1];
 		codigo_unico.brandColor2 = '#' + temp[2];
 		codigo_unico.hideTitle = temp[3];
@@ -233,10 +244,11 @@
 		return(codigo_unico);
 	}
 
+	/* print our customization on a string code */
 	function print_code(codigo_unico){
 		var exocode = '';
-		console.log("codigo a pintar");
-		console.log(codigo_unico);
+		//console.log("codigo a pintar");
+		//console.log(codigo_unico);
 		exocode += codigo_unico.brandColor;
 		exocode += codigo_unico.brandColor2;
 		//to use on split
@@ -256,12 +268,8 @@
 	function openUserCustomizeWindow(codigo) {
 
 		if (user_options.usecode){
-			console.log("queremos codigo");
-			console.log(codigo.value);
 			var custom_code = {};
 			custom_code = make_code(codigo.value);
-			console.log("codigo que cargamos custom")
-			console.log(custom_code);
 			window.templates.parse('user_customizer', {
 				topic_title: "Titulo",
 				brand_color: custom_code.brandColor || '#333333',
@@ -358,8 +366,6 @@
 						// check font size
 						user_options.fontSize = user_options.fontSize > 28 ? 28 : user_options.fontSize;
 						user_options.fontSize = user_options.fontSize < 8 ? 8 : user_options.fontSize;
-						console.log("vamos a guardar esto");
-						console.log(user_options);
 						saveUserCustomization(user_options);
 						return getUserCustomization(user_options);
 					}
