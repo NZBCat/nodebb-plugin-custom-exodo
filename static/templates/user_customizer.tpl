@@ -13,25 +13,25 @@
 
 <div class="form-group">
 	<label for="brand-color-input">Color principal</label>
-	<input type="color" value="{brand_color}" class="form-control" id="brand-color-input" placeholder="Ej. #CF246A">
+	<input type="color" value="{brand_color}" class="form-control" id="brand-color-input" placeholder="Ej. #FFFFFF">
 
 	<label for="brand-color2-input">Color secundario (degradado)</label>
-	<input type="color" value="{brand_color2}" class="form-control" id="brand-color2-input" placeholder="Ej. #CF246A">
+	<input type="color" value="{brand_color2}" class="form-control" id="brand-color2-input" placeholder="Ej. #FFFFFF">
 
 	<label for="brand-color-input">Color del texto</label>
-	<input type="color" value="{text_color}" class="form-control" id="text-color-input" placeholder="Ej. #CF246A">
+	<input type="color" value="{text_color}" class="form-control" id="text-color-input" placeholder="Ej. #FFFFFF">
 
 	<label for="brand-color-input">Color de fondo (mensajes)</label>
-	<input type="color" value="{background_color}" class="form-control" id="background-color-input" placeholder="Ej. #CF246A">
+	<input type="color" value="{background_color}" class="form-control" id="background-color-input" placeholder="Ej. #FFFFFFA">
 
 	<label for="brand-color-input">Color de fondo (foro)</label>
-	<input type="color" value="{background_color2}" class="form-control" id="background-color-input2" placeholder="Ej. #CF246A">
+	<input type="color" value="{background_color2}" class="form-control" id="background-color-input2" placeholder="Ej. #FFFFFFA">
 
 	<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>
 	<input type="text" value="{font_family}" class="form-control" id="font-family-input" placeholder="Ej. arial">
 
 	<label for="brand-color-input">Tamaño de letra</label>
-	<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="Ej. arial">
+	<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="13">
 
 </div>
 

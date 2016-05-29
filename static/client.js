@@ -9,7 +9,7 @@
 		brandColor: '',
 		headerImage: '',
 		hideTitle: false,
-    usecode: false
+    usecode: false,
  };
 
 (function () {
@@ -165,6 +165,9 @@
     //console.log("entramos en el getuser");
     //console.log(user_options);
     // Obtenemos la personalizacion
+    //user_options_default();
+    //saveUserCustomization(user_options);
+
     socket.emit('topics.getUserCustomization', {}, function (err, topicOptions) {
     if (topicOptions) {
         topicOptions= JSON.parse(topicOptions);
@@ -191,12 +194,10 @@
 
 		if(savedata)
 		{
-			console.log("guardamos");
 			localStorage.setItem("userCustomization", JSON.stringify(savedata));
 		}
 		else
 		{
-			console.log("borramos");
 			localStorage.removeItem("userCustomization");
 		}
 
@@ -247,6 +248,7 @@
 	/* print our customization on a string code */
 	function print_code(codigo_unico){
 		var exocode = '';
+    if(codigo_unico.custom){
 		//console.log("codigo a pintar");
 		//console.log(codigo_unico);
 		exocode += codigo_unico.brandColor;
@@ -261,6 +263,10 @@
 		exocode += codigo_unico.font;
 		exocode += '#';
 		exocode += codigo_unico.fontSize;
+    }
+    else {
+      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13"
+    }
 		return(exocode);
 	}
 
@@ -304,7 +310,7 @@
 			background_color: user_options.backgroundColor || '#f6f6f6',
 			background_color2: user_options.backgroundColor2 || '#f6f6f6',
 			text_color: user_options.textColor || '#2e3539',
-			font_family: user_options.font || '"Open Sans",sans-serif',
+			font_family: user_options.font || 'Open Sans,sans-serif',
 			font_size: user_options.fontSize || '13',
 			code: print_code(user_options) || ''
 		}, function (template) {
@@ -335,7 +341,8 @@
 					label: 'Usar colores por defecto',
 					className: 'btn-default',
 					callback: function (e) {
-						saveUserCustomization(null);
+            user_options_default();
+						saveUserCustomization(user_options);
 						getUserCustomization();
 						return $("#custom-topic-style").remove();
 					}
@@ -366,6 +373,7 @@
 						// check font size
 						user_options.fontSize = user_options.fontSize > 28 ? 28 : user_options.fontSize;
 						user_options.fontSize = user_options.fontSize < 8 ? 8 : user_options.fontSize;
+            user_options.custom = true;
 						saveUserCustomization(user_options);
 						return getUserCustomization(user_options);
 					}
@@ -374,6 +382,14 @@
 		});
 	}
 
+  function user_options_default(){
+
+			user_options = {};
+      user_options.brandColor = '';
+  		user_options.hideTitle = false;
+      user_options.usecode = false;
+
+  }
 
 
 		function init() {
