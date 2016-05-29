@@ -388,6 +388,7 @@
       user_options.brandColor = '';
   		user_options.hideTitle = false;
       user_options.usecode = false;
+      user_options.custom = false;
 
   }
 
