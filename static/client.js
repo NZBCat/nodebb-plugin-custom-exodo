@@ -171,7 +171,7 @@
     socket.emit('topics.getUserCustomization', {}, function (err, topicOptions) {
     if (topicOptions) {
         topicOptions= JSON.parse(topicOptions);
-        console.log(topicOptions);
+        //console.log(topicOptions);
         user_options = topicOptions;
         //user_options.headerImage = null;
         //user_options.usecode = false;
@@ -181,7 +181,7 @@
       }
       else
       {
-        console.log("borrado");
+        //console.log("borrado");
         localStorage.removeItem("userCustomization");
       }
     });
@@ -232,8 +232,6 @@
 	function make_code(codigo){
 		var codigo_unico = {};
 		var temp = codigo.split('#');
-		//console.log("codigo spliteado");
-		//console.log(temp);
 		codigo_unico.brandColor = '#' + temp[1];
 		codigo_unico.brandColor2 = '#' + temp[2];
 		codigo_unico.hideTitle = temp[3];
@@ -248,8 +246,7 @@
 	/* print our customization on a string code */
 	function print_code(codigo_unico){
 		var exocode = '';
-    if(codigo_unico.custom){
-		//console.log("codigo a pintar");
+    if(codigo_unico.custom || user_options.usecode){
 		//console.log(codigo_unico);
 		exocode += codigo_unico.brandColor;
 		exocode += codigo_unico.brandColor2;
@@ -274,8 +271,11 @@
 	function openUserCustomizeWindow(codigo) {
 
 		if (user_options.usecode){
+
+      //creating new object with code values
 			var custom_code = {};
 			custom_code = make_code(codigo.value);
+
 			window.templates.parse('user_customizer', {
 				topic_title: "Titulo",
 				brand_color: custom_code.brandColor || '#333333',
@@ -373,7 +373,7 @@
 						// check font size
 						user_options.fontSize = user_options.fontSize > 28 ? 28 : user_options.fontSize;
 						user_options.fontSize = user_options.fontSize < 8 ? 8 : user_options.fontSize;
-            user_options.custom = true;
+            user_options.custom = true; //flag to know code is saved
 						saveUserCustomization(user_options);
 						return getUserCustomization(user_options);
 					}
