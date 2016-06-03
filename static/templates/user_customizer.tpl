@@ -33,6 +33,9 @@
 	<label for="brand-color-input">Tamaño de letra</label>
 	<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="13">
 
+	<label for="brand-color-input">Color del borde de los Botones</label>
+	<input type="color" value="{border_button}" class="form-control" id="border-button-input" placeholder="Ej. #FFFFFF">
+
 </div>
 
 <div class="form-group">

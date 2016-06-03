@@ -132,13 +132,15 @@
 
 				style.textContent += '.ribbon-green a {color: white}';
 
-				if(user_options.backgroundColor2 != "")
-				{
+        //a partir de aqui he tocado
+
+				//if(user_options.backgroundColor2 != "")
+				//{
 					style.textContent += 'body {background: {bgcolor2}}'; //ok
-				}
+				//}
 
 	      style.textContent += '.category > ul > li {background-color: {bgcolor};}';
-
+        style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {border-left: 5px solid {borderbutton} !important;}';
 
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
@@ -152,6 +154,7 @@
 			style.textContent = style.textContent.replace(/\{bgcolor2\}/g, user_options.backgroundColor2);
 			style.textContent = style.textContent.replace(/\{fontfamily\}/g, user_options.font);
 			style.textContent = style.textContent.replace(/\{fontsize\}/g, user_options.fontSize);
+      style.textContent = style.textContent.replace(/\{borderbutton\}/g, user_options.borderButton);
 		}
 
 
@@ -240,6 +243,7 @@
 		codigo_unico.textColor = '#' + temp[6];
 		codigo_unico.font = temp[7];
 		codigo_unico.fontSize = temp[8];
+    codigo_unico.borderButton = '#' + temp[9];
 		return(codigo_unico);
 	}
 
@@ -260,9 +264,10 @@
 		exocode += codigo_unico.font;
 		exocode += '#';
 		exocode += codigo_unico.fontSize;
+    exocode += codigo_unico.borderButton;
     }
     else {
-      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13"
+      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13#333333"
     }
 		return(exocode);
 	}
@@ -274,6 +279,7 @@
 
       //creating new object with code values
 			var custom_code = {};
+      //console.log(codigo.value);
 			custom_code = make_code(codigo.value);
 
 			window.templates.parse('user_customizer', {
@@ -286,6 +292,7 @@
 				text_color: custom_code.textColor || '#2e3539',
 				font_family: custom_code.font || '"Open Sans",sans-serif',
 				font_size: custom_code.fontSize || '13',
+        border_button: custom_code.borderButton || '#333333',
 				code: print_code(custom_code) || ''
 			}, function (template) {
 
@@ -312,6 +319,7 @@
 			text_color: user_options.textColor || '#2e3539',
 			font_family: user_options.font || 'Open Sans,sans-serif',
 			font_size: user_options.fontSize || '13',
+      border_button: user_options.borderButton || '#333333',
 			code: print_code(user_options) || ''
 		}, function (template) {
 
@@ -368,6 +376,7 @@
 						user_options.font = sanitize($('#font-family-input').val());
 						user_options.fontSize = sanitize($('#font-size-input').val());
 						user_options.hideTitle = $('#hide-title-check').get(0).checked;
+            user_options.borderButton = sanitize($('#border-button-input').val());
 						//user_options.usecode = $('#use-code-check').get(0).checked;
 						user_options.usecode = false;
 						// check font size
