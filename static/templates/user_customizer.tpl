@@ -12,30 +12,49 @@
 </div>
 
 <div class="form-group">
-	<label for="brand-color-input">Color principal</label>
-	<input type="color" value="{brand_color}" class="form-control" id="brand-color-input" placeholder="Ej. #FFFFFF">
+	<div class='row'>
+		<div class='col-lg-12'>
+			<label for="brand-color-input">Color principal</label>
+			<input type="color" value="{brand_color}" class="form-control" id="brand-color-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-12'>
+			<label for="brand-color2-input">Color secundario (degradado)</label>
+			<input type="color" value="{brand_color2}" class="form-control" id="brand-color2-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-12'>
+			<label for="brand-color-input">Color del texto</label>
+			<input type="color" value="{text_color}" class="form-control" id="text-color-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Color de fondo (mensajes)</label>
+			<input type="color" value="{background_color}" class="form-control" id="background-color-input" placeholder="Ej. #FFFFFFA">
+		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Color de fondo (foro)</label>
+			<input type="color" value="{background_color2}" class="form-control" id="background-color-input2" placeholder="Ej. #FFFFFFA">
+		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>
+			<input type="text" value="{font_family}" class="form-control" id="font-family-input" placeholder="Ej. arial">
+		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Tamaño de letra</label>
+			<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="13">
+		</div>
+		<div class='col-lg-3'>
+			<label for="brand-color-input">Color del borde de los botones</label>
+			<input type="color" value="{border_button}" class="form-control" id="border-button-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-3'>
+			<label for="brand-color-input">Color de fondo de botones</label>
+			<input type="color" value="{background_button}" class="form-control" id="background-button-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-3'>
+			<label for="brand-color-input">Color de texto de botones</label>
+			<input type="color" value="{text_button}" class="form-control" id="text-button-input" placeholder="Ej. #FFFFFF">
+		</div>
 
-	<label for="brand-color2-input">Color secundario (degradado)</label>
-	<input type="color" value="{brand_color2}" class="form-control" id="brand-color2-input" placeholder="Ej. #FFFFFF">
-
-	<label for="brand-color-input">Color del texto</label>
-	<input type="color" value="{text_color}" class="form-control" id="text-color-input" placeholder="Ej. #FFFFFF">
-
-	<label for="brand-color-input">Color de fondo (mensajes)</label>
-	<input type="color" value="{background_color}" class="form-control" id="background-color-input" placeholder="Ej. #FFFFFFA">
-
-	<label for="brand-color-input">Color de fondo (foro)</label>
-	<input type="color" value="{background_color2}" class="form-control" id="background-color-input2" placeholder="Ej. #FFFFFFA">
-
-	<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>
-	<input type="text" value="{font_family}" class="form-control" id="font-family-input" placeholder="Ej. arial">
-
-	<label for="brand-color-input">Tamaño de letra</label>
-	<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="13">
-
-	<label for="brand-color-input">Color del borde de los Botones</label>
-	<input type="color" value="{border_button}" class="form-control" id="border-button-input" placeholder="Ej. #FFFFFF">
-
+	</div>
 </div>
 
 <div class="form-group">

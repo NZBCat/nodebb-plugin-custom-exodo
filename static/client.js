@@ -10,6 +10,7 @@
 		headerImage: '',
 		hideTitle: false,
     usecode: false,
+    custom: false,
  };
 
 (function () {
@@ -141,6 +142,8 @@
 
 	      style.textContent += '.category > ul > li {background-color: {bgcolor};}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {border-left: 5px solid {borderbutton} !important;}';
+        style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {background-color: {backgroundbutton} !important;}';
+        style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {color: {textbutton}}';
 
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
@@ -155,6 +158,8 @@
 			style.textContent = style.textContent.replace(/\{fontfamily\}/g, user_options.font);
 			style.textContent = style.textContent.replace(/\{fontsize\}/g, user_options.fontSize);
       style.textContent = style.textContent.replace(/\{borderbutton\}/g, user_options.borderButton);
+      style.textContent = style.textContent.replace(/\{backgroundbutton\}/g, user_options.backgroundButton);
+      style.textContent = style.textContent.replace(/\{textbutton\}/g, user_options.textButton);
 		}
 
 
@@ -244,6 +249,8 @@
 		codigo_unico.font = temp[7];
 		codigo_unico.fontSize = temp[8];
     codigo_unico.borderButton = '#' + temp[9];
+    codigo_unico.backgroundButton = '#' + temp[10];
+    codigo_unico.textButton = '#' + temp[11];
 		return(codigo_unico);
 	}
 
@@ -265,9 +272,11 @@
 		exocode += '#';
 		exocode += codigo_unico.fontSize;
     exocode += codigo_unico.borderButton;
+    exocode += codigo_unico.backgroundButton;
+    exocode += codigo_unico.textButton;
     }
     else {
-      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13#333333"
+      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13#333333#333333#333333"
     }
 		return(exocode);
 	}
@@ -293,6 +302,8 @@
 				font_family: custom_code.font || '"Open Sans",sans-serif',
 				font_size: custom_code.fontSize || '13',
         border_button: custom_code.borderButton || '#333333',
+        background_button: custom_code.backgroundButton || '#333333',
+        text_button: custom_code.textButton || '#333333',
 				code: print_code(custom_code) || ''
 			}, function (template) {
 
@@ -320,6 +331,8 @@
 			font_family: user_options.font || 'Open Sans,sans-serif',
 			font_size: user_options.fontSize || '13',
       border_button: user_options.borderButton || '#333333',
+      background_button: user_options.backgroundButton || '#333333',
+      text_button: user_options.textButton || '#333333',
 			code: print_code(user_options) || ''
 		}, function (template) {
 
@@ -377,6 +390,8 @@
 						user_options.fontSize = sanitize($('#font-size-input').val());
 						user_options.hideTitle = $('#hide-title-check').get(0).checked;
             user_options.borderButton = sanitize($('#border-button-input').val());
+            user_options.backgroundButton = sanitize($('#background-button-input').val());
+            user_options.textButton = sanitize($('#text-button-input').val());
 						//user_options.usecode = $('#use-code-check').get(0).checked;
 						user_options.usecode = false;
 						// check font size
@@ -395,6 +410,7 @@
 
 			user_options = {};
       user_options.brandColor = '';
+  		user_options.headerImage = '',
   		user_options.hideTitle = false;
       user_options.usecode = false;
       user_options.custom = false;
