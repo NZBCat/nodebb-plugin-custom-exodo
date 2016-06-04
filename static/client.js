@@ -145,6 +145,8 @@
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {background-color: {backgroundbutton} !important;}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {color: {textbutton}}';
 
+        style.textContent += '.category a:hover, .category a:focus, .posts a:focus, .posts a:hover, .categories a:hover, .categories a:focus {color: {hoverlink} !important;}'; //falta añadir muchos mas
+
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
 				style.textContent += 'i {font-family: {fontfamily}}';*/
@@ -160,6 +162,7 @@
       style.textContent = style.textContent.replace(/\{borderbutton\}/g, user_options.borderButton);
       style.textContent = style.textContent.replace(/\{backgroundbutton\}/g, user_options.backgroundButton);
       style.textContent = style.textContent.replace(/\{textbutton\}/g, user_options.textButton);
+      style.textContent = style.textContent.replace(/\{hoverlink\}/g, user_options.hoverLink);
 		}
 
 
@@ -251,6 +254,7 @@
     codigo_unico.borderButton = '#' + temp[9];
     codigo_unico.backgroundButton = '#' + temp[10];
     codigo_unico.textButton = '#' + temp[11];
+    codigo_unico.hoverLink = '#' + temp[12];
 		return(codigo_unico);
 	}
 
@@ -274,9 +278,10 @@
     exocode += codigo_unico.borderButton;
     exocode += codigo_unico.backgroundButton;
     exocode += codigo_unico.textButton;
+    exocode += codigo_unico.hoverLink;
     }
     else {
-      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13#333333#333333#333333"
+      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13#333333#333333#333333#333333"
     }
 		return(exocode);
 	}
@@ -304,6 +309,7 @@
         border_button: custom_code.borderButton || '#333333',
         background_button: custom_code.backgroundButton || '#333333',
         text_button: custom_code.textButton || '#333333',
+        hover_link: custom_code.hoverLink || '#333333',
 				code: print_code(custom_code) || ''
 			}, function (template) {
 
@@ -333,6 +339,7 @@
       border_button: user_options.borderButton || '#333333',
       background_button: user_options.backgroundButton || '#333333',
       text_button: user_options.textButton || '#333333',
+      hover_link: user_options.hoverLink || '#333333',
 			code: print_code(user_options) || ''
 		}, function (template) {
 
@@ -392,6 +399,7 @@
             user_options.borderButton = sanitize($('#border-button-input').val());
             user_options.backgroundButton = sanitize($('#background-button-input').val());
             user_options.textButton = sanitize($('#text-button-input').val());
+            user_options.hoverLink = sanitize($('#hover-link-input').val());
 						//user_options.usecode = $('#use-code-check').get(0).checked;
 						user_options.usecode = false;
 						// check font size
