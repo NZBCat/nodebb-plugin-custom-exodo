@@ -29,6 +29,10 @@
 			<label for="brand-color-input">Resaltado de Enlaces</label>
 			<input type="color" value="{hover_link}" class="form-control" id="hover-link-input" placeholder="Ej. #FFFFFF">
 		</div>
+		<div class='col-lg-12'>
+			<label for="brand-color-input">Color de fondo (editor y emergentes)</label>
+			<input type="color" value="{background_modal}" class="form-control" id="background-modal-input" placeholder="Ej. #FFFFFF">
+		</div>
 		<div class='col-lg-6'>
 			<label for="brand-color-input">Color de fondo (mensajes)</label>
 			<input type="color" value="{background_color}" class="form-control" id="background-color-input" placeholder="Ej. #FFFFFFA">
