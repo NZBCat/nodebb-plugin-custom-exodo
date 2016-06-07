@@ -34,12 +34,16 @@
 			<input type="color" value="{background_modal}" class="form-control" id="background-modal-input" placeholder="Ej. #FFFFFF">
 		</div>
 		<div class='col-lg-6'>
-			<label for="brand-color-input">Color de fondo (mensajes)</label>
+			<label for="brand-color-input">Color de fondo (Listados)</label>
 			<input type="color" value="{background_color}" class="form-control" id="background-color-input" placeholder="Ej. #FFFFFFA">
 		</div>
 		<div class='col-lg-6'>
 			<label for="brand-color-input">Color de fondo (foro)</label>
 			<input type="color" value="{background_color2}" class="form-control" id="background-color-input2" placeholder="Ej. #FFFFFFA">
+		</div>
+		<div class='col-lg-12'>
+			<label for="brand-color-input">Color de fondo (Posts)</label>
+			<input type="color" value="{background_postbox}" class="form-control" id="background-postbox-input" placeholder="Ej. #FFFFFFA">
 		</div>
 		<div class='col-lg-6'>
 			<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>

@@ -114,14 +114,14 @@
 				style.textContent += 'body {color: {textcolor}}';
 				style.textContent += '.category .category-head .category-head-top h1 {color: {color}}';
 
-				style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {bgcolor}}';
-				style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {bgcolor}}';
-				style.textContent += '.posts .post-details {background: {bgcolor}}';
-				style.textContent += '.posts .post-wrapper {background: {bgcolor}}';
-				style.textContent += '.posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
-				style.textContent += '.posts .post-wrapper .post-info {background: {bgcolor}}';
-				style.textContent += '.topic .posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
-				style.textContent += '.posts .post-signature {background: {bgcolor}}';
+				//style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {bgcolor}}';
+				//style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {bgcolor}}';
+				//style.textContent += '.posts .post-details {background: {bgcolor}}';
+				//style.textContent += '.posts .post-wrapper {background: {bgcolor}}';
+				//style.textContent += '.posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
+				//style.textContent += '.posts .post-wrapper .post-info {background: {bgcolor}}';
+				//style.textContent += '.topic .posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
+				//style.textContent += '.posts .post-signature {background: {bgcolor}}';
 				style.textContent += '.panel-body {background: {bgcolor}}';
 				style.textContent += '.panel {background: {bgcolor}}';
 				style.textContent += '.category-item.pinned .topic-row {background: {bgcolor}}';
@@ -131,14 +131,19 @@
 				style.textContent += 'body {font-family: {fontfamily}}';
 				style.textContent += 'body {font-size: {fontsize}px}';
 
-				style.textContent += '.ribbon-green a {color: white}';
+				//style.textContent += '.ribbon-green a {color: white}';
 
         //a partir de aqui he tocado
+        style.textContent += '.posts .post-details {background: {bgcolor3}}';
+        style.textContent += '.topic .posts .box {background: {bgcolor3};}';
+        style.textContent += '.topic .posts .links-bar small {background: {bgcolor3};}';
+        
 
-				//if(user_options.backgroundColor2 != "")
-				//{
-					style.textContent += 'body {background: {bgcolor2}}'; //ok
-				//}
+
+
+
+        style.textContent += 'body {background: {bgcolor2}}'; //ok
+
 
 	      style.textContent += '.category > ul > li {background-color: {bgcolor};}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {border-left: 5px solid {borderbutton} !important;}';
@@ -160,6 +165,7 @@
 			style.textContent = style.textContent.replace(/\{textcolor\}/g, user_options.textColor);
 			style.textContent = style.textContent.replace(/\{bgcolor\}/g, user_options.backgroundColor);
 			style.textContent = style.textContent.replace(/\{bgcolor2\}/g, user_options.backgroundColor2);
+      style.textContent = style.textContent.replace(/\{bgcolor3\}/g, user_options.backgroundPostbox);
 			style.textContent = style.textContent.replace(/\{fontfamily\}/g, user_options.font);
 			style.textContent = style.textContent.replace(/\{fontsize\}/g, user_options.fontSize);
       style.textContent = style.textContent.replace(/\{borderbutton\}/g, user_options.borderButton);
@@ -260,6 +266,8 @@
     codigo_unico.textButton = '#' + temp[11];
     codigo_unico.hoverLink = '#' + temp[12];
     codigo_unico.backgroundModal = '#' + temp[13];
+    codigo_unico.backgroundPostbox = '#' + temp[14];
+
 		return(codigo_unico);
 	}
 
@@ -285,9 +293,10 @@
     exocode += codigo_unico.textButton;
     exocode += codigo_unico.hoverLink;
     exocode += codigo_unico.backgroundModal;
+    exocode += codigo_unico.backgroundPostbox;
     }
     else {
-      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13#333333#333333#333333#333333#333333"
+      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13#333333#333333#333333#333333#333333#333333"
     }
 		return(exocode);
 	}
@@ -317,6 +326,7 @@
         text_button: custom_code.textButton || '#333333',
         hover_link: custom_code.hoverLink || '#333333',
         background_modal: custom_code.backgroundModal || '#333333',
+        background_postbox: custom_code.backgroundPostbox || '#333333',
 				code: print_code(custom_code) || ''
 			}, function (template) {
 
@@ -348,6 +358,7 @@
       text_button: user_options.textButton || '#333333',
       hover_link: user_options.hoverLink || '#333333',
       background_modal: user_options.backgroundModal || '#333333',
+      background_postbox: user_options.backgroundPostbox || '#333333',
 			code: print_code(user_options) || ''
 		}, function (template) {
 
@@ -409,6 +420,7 @@
             user_options.textButton = sanitize($('#text-button-input').val());
             user_options.hoverLink = sanitize($('#hover-link-input').val());
             user_options.backgroundModal = sanitize($('#background-modal-input').val());
+            user_options.backgroundPostbox = sanitize($('#background-postbox-input').val());
 						//user_options.usecode = $('#use-code-check').get(0).checked;
 						user_options.usecode = false;
 						// check font size
