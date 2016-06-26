@@ -81,13 +81,13 @@
 		/* Reemplazamos todos los elementos que tengan el color del tema por defecto */
 		if (user_options.brandColor && user_options.brandColor.match(/^(#\w{3,6}|[a-z]+)$/i)) {
 			// Elementos de un topic
-			style.textContent += '.custom-topic .post-row .post-header {background: {color}; border-color: {color};}';
-			style.textContent += '.custom-topic a {color: {color}}';
-			style.textContent += '.custom-topic .username-field {color: {textcolor} !important}';
-			style.textContent += '.custom-topic .btn-exodo .exright {background: {color}}';
-			style.textContent += '.custom-topic .pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
-			style.textContent += '.custom-topic .pagination a, .custom-topic .pagination a:hover {color: {color};}';
-			style.textContent += '.ribbon-green a {color: white}';
+			//style.textContent += '.custom-topic .post-row .post-header {background: {color}; border-color: {color};}';
+			//style.textContent += '.custom-topic a {color: {color}}';
+			//style.textContent += '.custom-topic .username-field {color: {textcolor} !important}';
+			//style.textContent += '.custom-topic .btn-exodo .exright {background: {color}}';
+			//style.textContent += '.custom-topic .pagination > .active > a {background: {color}; border-color: {color}; color: white; }';
+			//style.textContent += '.custom-topic .pagination a, .custom-topic .pagination a:hover {color: {color};}';
+			//style.textContent += '.ribbon-green a {color: white}';
 
 			// Elementos del resto del foro
 			if(localStorage.userCustomization)
@@ -146,6 +146,7 @@
         style.textContent += '.modal-content, .composer{ background-color: {backgroundmodal};}'; //lo dejo junto al composer de momento
 
         style.textContent +=  '.topic .content, .topic .sub-content  { background-color: {backgroundtextbox};}';
+        style.textContent +=  '.topic .content, .topic .sub-content  { color: {postcolor};}';
 
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
@@ -168,6 +169,7 @@
       style.textContent = style.textContent.replace(/\{hoverbutton\}/g, user_options.hoverButton);
       style.textContent = style.textContent.replace(/\{hoverlink\}/g, user_options.hoverLink);
       style.textContent = style.textContent.replace(/\{backgroundmodal\}/g, user_options.backgroundModal);
+      style.textContent = style.textContent.replace(/\{postcolor\}/g, user_options.postColor);
 		}
 
 
@@ -266,6 +268,7 @@
     codigo_unico.backgroundPostbox = '#' + temp[15];
     codigo_unico.backgroundTextbox = '#' + temp[16];
     codigo_unico.backgroundPostbar = '#' + temp[17];
+    codigo_unico.postColor = '#' + temp[18];
 
 		return(codigo_unico);
 	}
@@ -296,9 +299,10 @@
     exocode += codigo_unico.backgroundPostbox;
     exocode += codigo_unico.backgroundTextbox;
     exocode += codigo_unico.backgroundPostbar;
+    exocode += codigo_unico.postColor;
     }
     else {
-      exocode = "#false#Open Sans,sans-serif#13#333301#333302#333303#333304#333305#333306#333307#333308#333309#333310#333311#333312#333313#333314#333315"
+      exocode = "#false#Open Sans,sans-serif#13#333301#333302#333303#333304#333305#333306#333307#333308#333309#333310#333311#333312#333313#333314#333315#333316"
     }
 		return(exocode);
 	}
@@ -332,6 +336,7 @@
         background_postbox: custom_code.backgroundPostbox || '#333333',
         background_textbox: custom_code.backgroundTextbox || '#333333',
         background_postbar: custom_code.backgroundPostbar || '#333333',
+        post_color: custom_code.postColor || '#333333',
 				code: print_code(custom_code) || ''
 			}, function (template) {
 
@@ -367,6 +372,7 @@
       background_postbox: user_options.backgroundPostbox || '#333333',
       background_textbox: user_options.backgroundTextbox || '#333333',
       background_postbar: user_options.backgroundPostbar || '#333333',
+      post_color: user_options.postColor || '#333333',
 			code: print_code(user_options) || ''
 		}, function (template) {
 
@@ -434,6 +440,7 @@
             user_options.backgroundPostbox = sanitize($('#background-postbox-input').val());
             user_options.backgroundTextbox = sanitize($('#background-textbox-input').val());
             user_options.backgroundPostbar = sanitize($('#background-postbar-input').val());
+            user_options.postColor = sanitize($('#post-color-input').val());
 						//user_options.usecode = $('#use-code-check').get(0).checked;
 						user_options.usecode = false;
 						// check font size

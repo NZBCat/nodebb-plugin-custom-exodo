@@ -49,9 +49,13 @@
 			<label for="brand-color-input">Color de fondo abajo (Posts)</label>
 			<input type="color" value="{background_postbar}" class="form-control" id="background-postbar-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-12'>
+		<div class='col-lg-6'>
 			<label for="brand-color-input">Color de caja de texto (Posts)</label>
 			<input type="color" value="{background_textbox}" class="form-control" id="background-textbox-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Color de texto (Posts)</label>
+			<input type="color" value="{post_color}" class="form-control" id="post-color-input" placeholder="Ej. #FFFFFF">
 		</div>
 		<div class='col-lg-6'>
 			<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>
