@@ -15,8 +15,6 @@
 
 (function () {
 
-
-
 	/* Este el único hook que he encontrado que se ejecuta lo suficientemente pronto sin pasarse, pero es genérico, por lo que comprobamos que estamos dentro de un Topic */
 	$(window).on('action:ajaxify.contentLoaded', function () {
 
@@ -25,7 +23,6 @@
     alert(result);
 		});
 */
-
 
 		// Siempre cargamos la personalizacion del usuario, si el topic tiene una porpia la sobreescribira luego
 		loadUserStorage();
@@ -114,19 +111,19 @@
 				style.textContent += 'body {color: {textcolor}}';
 				style.textContent += '.category .category-head .category-head-top h1 {color: {color}}';
 
-				//style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {bgcolor}}';
-				//style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {bgcolor}}';
-				//style.textContent += '.posts .post-details {background: {bgcolor}}';
-				//style.textContent += '.posts .post-wrapper {background: {bgcolor}}';
-				//style.textContent += '.posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
-				//style.textContent += '.posts .post-wrapper .post-info {background: {bgcolor}}';
-				//style.textContent += '.topic .posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
-				//style.textContent += '.posts .post-signature {background: {bgcolor}}';
-				style.textContent += '.panel-body {background: {bgcolor}}';
-				style.textContent += '.panel {background: {bgcolor}}';
-				style.textContent += '.category-item.pinned .topic-row {background: {bgcolor}}';
-				style.textContent += '.category .category-topics .threadlisthead .category-item .topic-row {background: {bgcolor};}';
-				style.textContent += '.topic .posts .post-wrapper .post-details {background: {bgcolor}}';
+				//style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {backgroundpostlist}}';
+				//style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {backgroundpostlist}}';
+				//style.textContent += '.posts .post-details {background: {backgroundpostlist}}';
+				//style.textContent += '.posts .post-wrapper {background: {backgroundpostlist}}';
+				//style.textContent += '.posts .post-wrapper .post-details .post-block {background: {backgroundpostlist}}';
+				//style.textContent += '.posts .post-wrapper .post-info {background: {backgroundpostlist}}';
+				//style.textContent += '.topic .posts .post-wrapper .post-details .post-block {background: {backgroundpostlist}}';
+				//style.textContent += '.posts .post-signature {background: {backgroundpostlist}}';
+				style.textContent += '.panel-body {background: {backgroundpostlist}}';
+				style.textContent += '.panel {background: {backgroundpostlist}}';
+				style.textContent += '.category-item.pinned .topic-row {background: {backgroundpostlist}}';
+				style.textContent += '.category .category-topics .threadlisthead .category-item .topic-row {background: {backgroundpostlist};}';
+				style.textContent += '.topic .posts .post-wrapper .post-details {background: {backgroundpostlist}}';
 
 				style.textContent += 'body {font-family: {fontfamily}}';
 				style.textContent += 'body {font-size: {fontsize}px}';
@@ -134,26 +131,21 @@
 				//style.textContent += '.ribbon-green a {color: white}';
 
         //a partir de aqui he tocado
-        style.textContent += '.posts .post-details {background: {bgcolor3}}';
-        style.textContent += '.topic .posts .box {background: {bgcolor3};}';
-        style.textContent += '.topic .posts .links-bar small {background: {bgcolor3};}';
-        
+        style.textContent += '.posts .post-details {background: {backgroundpostbox}}';
+        style.textContent += '.topic .posts .box {background: {backgroundpostbox};}';
+        style.textContent += '.topic .posts .links-bar small {background: {backgroundpostbar};}';
+        style.textContent += 'body {background: {backgroundforo}}'; //ok
 
-
-
-
-        style.textContent += 'body {background: {bgcolor2}}'; //ok
-
-
-	      style.textContent += '.category > ul > li {background-color: {bgcolor};}';
+	      style.textContent += '.category > ul > li, .categories >li {background-color: {backgroundpostlist};}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {border-left: 5px solid {borderbutton} !important;}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {background-color: {backgroundbutton} !important;}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {color: {textbutton}}';
-
+        style.textContent += '.btn-default:hover, .btn-primary:hover, .btn-danger:hover, .btn-info:hover, .btn-warning:hover {color: {hoverbutton} !important}';
         style.textContent += '.category a:hover, .category a:focus, .posts a:focus, .posts a:hover, .categories a:hover, .categories a:focus {color: {hoverlink} !important;}'; //falta añadir muchos mas
 
         style.textContent += '.modal-content, .composer{ background-color: {backgroundmodal};}'; //lo dejo junto al composer de momento
 
+        style.textContent +=  '.topic .content, .topic .sub-content  { background-color: {backgroundtextbox};}';
 
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
@@ -163,14 +155,17 @@
 			style.textContent = style.textContent.replace(/\{color\}/g, user_options.brandColor);
 			style.textContent = style.textContent.replace(/\{color2\}/g, user_options.brandColor2);
 			style.textContent = style.textContent.replace(/\{textcolor\}/g, user_options.textColor);
-			style.textContent = style.textContent.replace(/\{bgcolor\}/g, user_options.backgroundColor);
-			style.textContent = style.textContent.replace(/\{bgcolor2\}/g, user_options.backgroundColor2);
-      style.textContent = style.textContent.replace(/\{bgcolor3\}/g, user_options.backgroundPostbox);
+			style.textContent = style.textContent.replace(/\{backgroundpostlist\}/g, user_options.backgroundPostlist);
+			style.textContent = style.textContent.replace(/\{backgroundforo\}/g, user_options.backgroundForo);
+      style.textContent = style.textContent.replace(/\{backgroundpostbox\}/g, user_options.backgroundPostbox);
+      style.textContent = style.textContent.replace(/\{backgroundpostbar\}/g, user_options.backgroundPostbar);
+      style.textContent = style.textContent.replace(/\{backgroundtextbox\}/g, user_options.backgroundTextbox);
 			style.textContent = style.textContent.replace(/\{fontfamily\}/g, user_options.font);
 			style.textContent = style.textContent.replace(/\{fontsize\}/g, user_options.fontSize);
       style.textContent = style.textContent.replace(/\{borderbutton\}/g, user_options.borderButton);
       style.textContent = style.textContent.replace(/\{backgroundbutton\}/g, user_options.backgroundButton);
       style.textContent = style.textContent.replace(/\{textbutton\}/g, user_options.textButton);
+      style.textContent = style.textContent.replace(/\{hoverbutton\}/g, user_options.hoverButton);
       style.textContent = style.textContent.replace(/\{hoverlink\}/g, user_options.hoverLink);
       style.textContent = style.textContent.replace(/\{backgroundmodal\}/g, user_options.backgroundModal);
 		}
@@ -253,20 +248,24 @@
 	function make_code(codigo){
 		var codigo_unico = {};
 		var temp = codigo.split('#');
-		codigo_unico.brandColor = '#' + temp[1];
-		codigo_unico.brandColor2 = '#' + temp[2];
-		codigo_unico.hideTitle = temp[3];
-		codigo_unico.backgroundColor = '#' + temp[4];
-		codigo_unico.backgroundColor2 = '#' + temp[5];
-		codigo_unico.textColor = '#' + temp[6];
-		codigo_unico.font = temp[7];
-		codigo_unico.fontSize = temp[8];
+
+		codigo_unico.hideTitle = temp[1];
+		codigo_unico.font = temp[2];
+		codigo_unico.fontSize = temp[3];
+		codigo_unico.brandColor = '#' + temp[4];
+		codigo_unico.brandColor2 = '#' + temp[5];
+		codigo_unico.backgroundPostlist = '#' + temp[6];
+		codigo_unico.backgroundForo = '#' + temp[7];
+		codigo_unico.textColor = '#' + temp[8];
     codigo_unico.borderButton = '#' + temp[9];
     codigo_unico.backgroundButton = '#' + temp[10];
     codigo_unico.textButton = '#' + temp[11];
-    codigo_unico.hoverLink = '#' + temp[12];
-    codigo_unico.backgroundModal = '#' + temp[13];
-    codigo_unico.backgroundPostbox = '#' + temp[14];
+    codigo_unico.hoverButton = '#' + temp[12];
+    codigo_unico.hoverLink = '#' + temp[13];
+    codigo_unico.backgroundModal = '#' + temp[14];
+    codigo_unico.backgroundPostbox = '#' + temp[15];
+    codigo_unico.backgroundTextbox = '#' + temp[16];
+    codigo_unico.backgroundPostbar = '#' + temp[17];
 
 		return(codigo_unico);
 	}
@@ -276,27 +275,30 @@
 		var exocode = '';
     if(codigo_unico.custom || user_options.usecode){
 		//console.log(codigo_unico);
-		exocode += codigo_unico.brandColor;
-		exocode += codigo_unico.brandColor2;
-		//to use on split
+
 		exocode += '#';
 	  exocode += codigo_unico.hideTitle;
-		exocode += codigo_unico.backgroundColor;
-		exocode += codigo_unico.backgroundColor2;
-		exocode += codigo_unico.textColor;
 		exocode += '#';
 		exocode += codigo_unico.font;
 		exocode += '#';
 		exocode += codigo_unico.fontSize;
+		exocode += codigo_unico.brandColor;
+		exocode += codigo_unico.brandColor2;
+		exocode += codigo_unico.backgroundPostlist;
+		exocode += codigo_unico.backgroundForo;
+		exocode += codigo_unico.textColor;
     exocode += codigo_unico.borderButton;
     exocode += codigo_unico.backgroundButton;
     exocode += codigo_unico.textButton;
+    exocode += codigo_unico.hoverButton;
     exocode += codigo_unico.hoverLink;
     exocode += codigo_unico.backgroundModal;
     exocode += codigo_unico.backgroundPostbox;
+    exocode += codigo_unico.backgroundTextbox;
+    exocode += codigo_unico.backgroundPostbar;
     }
     else {
-      exocode = "#333333#333333#false#f6f6f6#f6f6f6#2e3539#Open Sans,sans-serif#13#333333#333333#333333#333333#333333#333333"
+      exocode = "#false#Open Sans,sans-serif#13#333301#333302#333303#333304#333305#333306#333307#333308#333309#333310#333311#333312#333313#333314#333315"
     }
 		return(exocode);
 	}
@@ -316,17 +318,20 @@
 				brand_color: custom_code.brandColor || '#333333',
 				brand_color2: custom_code.brandColor2 || '#333333',
 				hide_title: custom_code.hideTitle || false,
-				background_color: custom_code.backgroundColor || '#f6f6f6',
-				background_color2: custom_code.backgroundColor2 || '#f6f6f6',
+				background_postlist: custom_code.backgroundPostlist || '#333333',
+				background_foro: custom_code.backgroundForo || '#333333',
 				text_color: custom_code.textColor || '#2e3539',
 				font_family: custom_code.font || '"Open Sans",sans-serif',
 				font_size: custom_code.fontSize || '13',
         border_button: custom_code.borderButton || '#333333',
         background_button: custom_code.backgroundButton || '#333333',
         text_button: custom_code.textButton || '#333333',
+        hover_button: custom_code.hoverButton || '#333333',
         hover_link: custom_code.hoverLink || '#333333',
         background_modal: custom_code.backgroundModal || '#333333',
         background_postbox: custom_code.backgroundPostbox || '#333333',
+        background_textbox: custom_code.backgroundTextbox || '#333333',
+        background_postbar: custom_code.backgroundPostbar || '#333333',
 				code: print_code(custom_code) || ''
 			}, function (template) {
 
@@ -348,17 +353,20 @@
 			brand_color: user_options.brandColor || '#333333',
 			brand_color2: user_options.brandColor2 || '#333333',
 			hide_title: user_options.hideTitle || false,
-			background_color: user_options.backgroundColor || '#f6f6f6',
-			background_color2: user_options.backgroundColor2 || '#f6f6f6',
+			background_postlist: user_options.backgroundPostlist || '#333333',
+			background_foro: user_options.backgroundForo || '#333333',
 			text_color: user_options.textColor || '#2e3539',
 			font_family: user_options.font || 'Open Sans,sans-serif',
 			font_size: user_options.fontSize || '13',
       border_button: user_options.borderButton || '#333333',
       background_button: user_options.backgroundButton || '#333333',
       text_button: user_options.textButton || '#333333',
+      hover_button: user_options.hoverButton || '#333333',
       hover_link: user_options.hoverLink || '#333333',
       background_modal: user_options.backgroundModal || '#333333',
       background_postbox: user_options.backgroundPostbox || '#333333',
+      background_textbox: user_options.backgroundTextbox || '#333333',
+      background_postbar: user_options.backgroundPostbar || '#333333',
 			code: print_code(user_options) || ''
 		}, function (template) {
 
@@ -374,6 +382,8 @@
 	function buildUserCustomizationDialog(template) {
 		return bootbox.dialog({
 			title: 'Personalizar',
+      className: "personalize",
+      size: "large",
 			message: template,
 			buttons: {
 				"code": {
@@ -410,17 +420,20 @@
 						user_options.brandColor = sanitize($('#brand-color-input').val());
 						user_options.brandColor2 = sanitize($('#brand-color2-input').val());
 						user_options.textColor = sanitize($('#text-color-input').val());
-						user_options.backgroundColor = sanitize($('#background-color-input').val());
-						user_options.backgroundColor2 = sanitize($('#background-color-input2').val());
+						user_options.backgroundPostlist = sanitize($('#background-postlist-input').val());
+						user_options.backgroundForo = sanitize($('#background-foro-input').val());
 						user_options.font = sanitize($('#font-family-input').val());
 						user_options.fontSize = sanitize($('#font-size-input').val());
 						user_options.hideTitle = $('#hide-title-check').get(0).checked;
             user_options.borderButton = sanitize($('#border-button-input').val());
             user_options.backgroundButton = sanitize($('#background-button-input').val());
             user_options.textButton = sanitize($('#text-button-input').val());
+            user_options.hoverButton = sanitize($('#hover-button-input').val());
             user_options.hoverLink = sanitize($('#hover-link-input').val());
             user_options.backgroundModal = sanitize($('#background-modal-input').val());
             user_options.backgroundPostbox = sanitize($('#background-postbox-input').val());
+            user_options.backgroundTextbox = sanitize($('#background-textbox-input').val());
+            user_options.backgroundPostbar = sanitize($('#background-postbar-input').val());
 						//user_options.usecode = $('#use-code-check').get(0).checked;
 						user_options.usecode = false;
 						// check font size
@@ -545,26 +558,26 @@
 					style.textContent += 'body {color: {textcolor}}';
 					style.textContent += '.category .category-head .category-head-top h1 {color: {color}}';
 
-					style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {bgcolor}}';
-					style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {bgcolor}}';
-					style.textContent += '.posts .post-details {background: {bgcolor}}';
-					style.textContent += '.posts .post-wrapper {background: {bgcolor}}';
-					style.textContent += '.posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
-					style.textContent += '.posts .post-wrapper .post-info {background: {bgcolor}}';
-					style.textContent += '.topic .posts .post-wrapper .post-details .post-block {background: {bgcolor}}';
-					style.textContent += '.posts .post-signature {background: {bgcolor}}';
-					style.textContent += '.panel-body {background: {bgcolor}}';
-					style.textContent += '.panel {background: {bgcolor}}';
-					style.textContent += '.category-item.pinned .topic-row {background: {bgcolor}}';
-					style.textContent += '.category .category-topics .threadlisthead .category-item .topic-row {background: {bgcolor};}';
-					style.textContent += '.topic .posts .post-wrapper .post-details {background: {bgcolor}}';
+					style.textContent += '.topic .posts .post-wrapper .post-details .userinfo {background: {backgroundpostlist}}';
+					style.textContent += '.posts .post-wrapper .post-details .userinfo-extra {background: {backgroundpostlist}}';
+					style.textContent += '.posts .post-details {background: {backgroundpostlist}}';
+					style.textContent += '.posts .post-wrapper {background: {backgroundpostlist}}';
+					style.textContent += '.posts .post-wrapper .post-details .post-block {background: {backgroundpostlist}}';
+					style.textContent += '.posts .post-wrapper .post-info {background: {backgroundpostlist}}';
+					style.textContent += '.topic .posts .post-wrapper .post-details .post-block {background: {backgroundpostlist}}';
+					style.textContent += '.posts .post-signature {background: {backgroundpostlist}}';
+					style.textContent += '.panel-body {background: {backgroundpostlist}}';
+					style.textContent += '.panel {background: {backgroundpostlist}}';
+					style.textContent += '.category-item.pinned .topic-row {background: {backgroundpostlist}}';
+					style.textContent += '.category .category-topics .threadlisthead .category-item .topic-row {background: {backgroundpostlist};}';
+					style.textContent += '.topic .posts .post-wrapper .post-details {background: {backgroundpostlist}}';
 
 					style.textContent += 'body {font-family: {fontfamily}}';
 					style.textContent += 'body {font-size: {fontsize}px}';
 
 					style.textContent += '.ribbon-green a {color: white}';
 
-					if(options.backgroundColor2 != "")
+					if(options.backgroundForo != "")
 					{
 						style.textContent += 'html {background: {bgcolor2}}';
 					}
@@ -577,8 +590,8 @@
 				style.textContent = style.textContent.replace(/\{color\}/g, options.brandColor);
 				style.textContent = style.textContent.replace(/\{color2\}/g, options.brandColor2);
 				style.textContent = style.textContent.replace(/\{textcolor\}/g, options.textColor);
-				style.textContent = style.textContent.replace(/\{bgcolor\}/g, options.backgroundColor);
-				style.textContent = style.textContent.replace(/\{bgcolor2\}/g, options.backgroundColor2);
+				style.textContent = style.textContent.replace(/\{bgcolor\}/g, options.backgroundPostlist);
+				style.textContent = style.textContent.replace(/\{bgcolor2\}/g, options.backgroundForo);
 				style.textContent = style.textContent.replace(/\{fontfamily\}/g, options.font);
 				style.textContent = style.textContent.replace(/\{fontsize\}/g, options.fontSize);
 			}
