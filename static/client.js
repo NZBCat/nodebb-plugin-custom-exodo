@@ -141,13 +141,16 @@
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {background-color: {backgroundbutton} !important;}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {color: {textbutton}}';
         style.textContent += '.btn-default:hover, .btn-primary:hover, .btn-danger:hover, .btn-info:hover, .btn-warning:hover {color: {hoverbutton} !important}';
-        style.textContent += '.category a:hover, .category a:focus, .posts a:focus, .posts a:hover, .categories a:hover, .categories a:focus {color: {hoverlink} !important;}'; //falta añadir muchos mas
+        //style.textContent += '.category a:hover, .category a:focus, .topic .content a:focus, .topic .content a:hover, .topic .sub-content a:focus, .topic .sub-content a:hover, .categories a:hover, .categories a:focus {color: {hoverlink} !important;}'; //falta añadir muchos mas
+        style.textContent += ' a:hover, a:focus {color: {hoverlink};}'; //version simplificada de lo de arriba
+        style.textContent += '.category>ul>li:not(.unread) h2 a:hover {color: {hoverlink};}';
 
         style.textContent += '.modal-content, .composer{ background-color: {backgroundmodal};}'; //lo dejo junto al composer de momento
 
         style.textContent +=  '.topic .content, .topic .sub-content  { background-color: {backgroundtextbox};}';
         style.textContent +=  '.topic .content, .topic .sub-content  { color: {postcolor};}';
 
+        style.textContent += '.links-bar a, .links-bar { color: {linksbarcolor} !important;}';
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
 				style.textContent += 'i {font-family: {fontfamily}}';*/
@@ -170,6 +173,7 @@
       style.textContent = style.textContent.replace(/\{hoverlink\}/g, user_options.hoverLink);
       style.textContent = style.textContent.replace(/\{backgroundmodal\}/g, user_options.backgroundModal);
       style.textContent = style.textContent.replace(/\{postcolor\}/g, user_options.postColor);
+      style.textContent = style.textContent.replace(/\{linksbarcolor\}/g, user_options.linksbarColor);
 		}
 
 
@@ -269,6 +273,7 @@
     codigo_unico.backgroundTextbox = '#' + temp[16];
     codigo_unico.backgroundPostbar = '#' + temp[17];
     codigo_unico.postColor = '#' + temp[18];
+    codigo_unico.linksbarColor = '#' + temp[19];
 
 		return(codigo_unico);
 	}
@@ -300,9 +305,10 @@
     exocode += codigo_unico.backgroundTextbox;
     exocode += codigo_unico.backgroundPostbar;
     exocode += codigo_unico.postColor;
+    exocode += codigo_unico.linksbarColor;
     }
     else {
-      exocode = "#false#Open Sans,sans-serif#13#333301#333302#333303#333304#333305#333306#333307#333308#333309#333310#333311#333312#333313#333314#333315#333316"
+      exocode = "#false#Open Sans,sans-serif#13#333301#333302#333303#333304#333305#333306#333307#333308#333309#333310#333311#333312#333313#333314#333315#333316#333317"
     }
 		return(exocode);
 	}
@@ -337,6 +343,7 @@
         background_textbox: custom_code.backgroundTextbox || '#333333',
         background_postbar: custom_code.backgroundPostbar || '#333333',
         post_color: custom_code.postColor || '#333333',
+        linksbar_color: custom_code.linksbarColor || '#333333',
 				code: print_code(custom_code) || ''
 			}, function (template) {
 
@@ -373,6 +380,7 @@
       background_textbox: user_options.backgroundTextbox || '#333333',
       background_postbar: user_options.backgroundPostbar || '#333333',
       post_color: user_options.postColor || '#333333',
+      linksbar_color: user_options.linksbarColor || '#333333',
 			code: print_code(user_options) || ''
 		}, function (template) {
 
@@ -441,6 +449,7 @@
             user_options.backgroundTextbox = sanitize($('#background-textbox-input').val());
             user_options.backgroundPostbar = sanitize($('#background-postbar-input').val());
             user_options.postColor = sanitize($('#post-color-input').val());
+            user_options.linksbarColor = sanitize($('#linksbar-color-input').val());
 						//user_options.usecode = $('#use-code-check').get(0).checked;
 						user_options.usecode = false;
 						// check font size
