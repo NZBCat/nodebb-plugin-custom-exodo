@@ -50,6 +50,14 @@
 			<label for="brand-color-input">Resaltado de Enlaces</label>
 			<input type="color" value="{hover_link}" class="form-control" id="hover-link-input" placeholder="Ej. #FFFFFF">
 		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Color de fondo Menus</label>
+			<input type="color" value="{background_dropdown}" class="form-control" id="background-dropdown-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Texto de Menus</label>
+			<input type="color" value="{dropdown_color}" class="form-control" id="dropdown-color-input" placeholder="Ej. #FFFFFF">
+		</div>
 	</div>
 </div>
 <hr>
@@ -75,6 +83,14 @@
 		<div class='col-lg-6'>
 			<label for="brand-color-input">Color texto barra inferior </label>
 			<input type="color" value="{linksbar_color}" class="form-control" id="linksbar-color-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Enlaces de Mensajes </label>
+			<input type="color" value="{post_link}" class="form-control" id="post-link-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-6'>
+			<label for="brand-color-input">Resaltado de enlaces </label>
+			<input type="color" value="{post_hover}" class="form-control" id="post-hover-input" placeholder="Ej. #FFFFFF">
 		</div>
 
 	</div>

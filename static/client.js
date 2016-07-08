@@ -139,18 +139,28 @@
 	      style.textContent += '.category > ul > li, .categories >li {background-color: {backgroundpostlist};}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {border-left: 5px solid {borderbutton} !important;}';
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {background-color: {backgroundbutton} !important;}';
-        style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {color: {textbutton}}';
+        style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning, .btn-primary:active, .btn-default:focus, .btn-primary:focus, .open > .dropdown-toggle.btn-default  {color: {textbutton}}';
         style.textContent += '.btn-default:hover, .btn-primary:hover, .btn-danger:hover, .btn-info:hover, .btn-warning:hover {color: {hoverbutton} !important}';
         //style.textContent += '.category a:hover, .category a:focus, .topic .content a:focus, .topic .content a:hover, .topic .sub-content a:focus, .topic .sub-content a:hover, .categories a:hover, .categories a:focus {color: {hoverlink} !important;}'; //falta añadir muchos mas
-        style.textContent += ' a:hover, a:focus {color: {hoverlink};}'; //version simplificada de lo de arriba
+        style.textContent += ' a:hover, a:focus , a:active {color: {hoverlink};}'; //version simplificada de lo de arriba
         style.textContent += '.category>ul>li:not(.unread) h2 a:hover {color: {hoverlink};}';
 
         style.textContent += '.modal-content, .composer{ background-color: {backgroundmodal};}'; //lo dejo junto al composer de momento
 
         style.textContent +=  '.topic .content, .topic .sub-content  { background-color: {backgroundtextbox};}';
         style.textContent +=  '.topic .content, .topic .sub-content  { color: {postcolor};}';
-
+		
+		style.textContent += '.box a {color: {postlink};}';
+		style.textContent += '.box a.permalink {color: {postlink};}';
+		style.textContent += '.box a.permalink:hover, .box a.permalink:focus, .box a.permalink:active {color: {posthover};}';
+		style.textContent += '.box a:hover, .box a:focus, .box a:active {color: {posthover};}';
+		
         style.textContent += '.links-bar a, .links-bar { color: {linksbarcolor} !important;}';
+		
+		style.textContent +=  '.dropdown-menu { background-color: {backgrounddropdown};}';
+		style.textContent +=  '#menu .notification-list li.unread, .header .notification-list li.unread { background-color: {backgrounddropdown};}'; //meterlo en el futuro como opcion
+		style.textContent +=  '.dropdown-menu li a { color: {dropdowncolor} !important;}';
+		style.textContent +=  '.dropdown-menu li ul li a { color: {dropdowncolor} !important;}';
 				/*style.textContent += 'p {font-family: {fontfamily}}';
 				style.textContent += 'a {font-family: {fontfamily}}';
 				style.textContent += 'i {font-family: {fontfamily}}';*/
@@ -161,19 +171,25 @@
 			style.textContent = style.textContent.replace(/\{textcolor\}/g, user_options.textColor);
 			style.textContent = style.textContent.replace(/\{backgroundpostlist\}/g, user_options.backgroundPostlist);
 			style.textContent = style.textContent.replace(/\{backgroundforo\}/g, user_options.backgroundForo);
-      style.textContent = style.textContent.replace(/\{backgroundpostbox\}/g, user_options.backgroundPostbox);
-      style.textContent = style.textContent.replace(/\{backgroundpostbar\}/g, user_options.backgroundPostbar);
-      style.textContent = style.textContent.replace(/\{backgroundtextbox\}/g, user_options.backgroundTextbox);
+			style.textContent = style.textContent.replace(/\{backgroundpostbox\}/g, user_options.backgroundPostbox);
+			style.textContent = style.textContent.replace(/\{backgroundpostbar\}/g, user_options.backgroundPostbar);
+			style.textContent = style.textContent.replace(/\{backgroundtextbox\}/g, user_options.backgroundTextbox);
 			style.textContent = style.textContent.replace(/\{fontfamily\}/g, user_options.font);
 			style.textContent = style.textContent.replace(/\{fontsize\}/g, user_options.fontSize);
-      style.textContent = style.textContent.replace(/\{borderbutton\}/g, user_options.borderButton);
-      style.textContent = style.textContent.replace(/\{backgroundbutton\}/g, user_options.backgroundButton);
-      style.textContent = style.textContent.replace(/\{textbutton\}/g, user_options.textButton);
-      style.textContent = style.textContent.replace(/\{hoverbutton\}/g, user_options.hoverButton);
-      style.textContent = style.textContent.replace(/\{hoverlink\}/g, user_options.hoverLink);
-      style.textContent = style.textContent.replace(/\{backgroundmodal\}/g, user_options.backgroundModal);
-      style.textContent = style.textContent.replace(/\{postcolor\}/g, user_options.postColor);
-      style.textContent = style.textContent.replace(/\{linksbarcolor\}/g, user_options.linksbarColor);
+			style.textContent = style.textContent.replace(/\{borderbutton\}/g, user_options.borderButton);
+			style.textContent = style.textContent.replace(/\{backgroundbutton\}/g, user_options.backgroundButton);
+			style.textContent = style.textContent.replace(/\{textbutton\}/g, user_options.textButton);
+			style.textContent = style.textContent.replace(/\{hoverbutton\}/g, user_options.hoverButton);
+			style.textContent = style.textContent.replace(/\{hoverlink\}/g, user_options.hoverLink);
+			style.textContent = style.textContent.replace(/\{backgroundmodal\}/g, user_options.backgroundModal);
+			style.textContent = style.textContent.replace(/\{postcolor\}/g, user_options.postColor);
+			style.textContent = style.textContent.replace(/\{linksbarcolor\}/g, user_options.linksbarColor);
+			
+			style.textContent = style.textContent.replace(/\{postlink\}/g, user_options.postLink);
+			style.textContent = style.textContent.replace(/\{posthover\}/g, user_options.postHover);
+			
+			style.textContent = style.textContent.replace(/\{backgrounddropdown\}/g, user_options.backgroundDropdown);
+			style.textContent = style.textContent.replace(/\{dropdowncolor\}/g, user_options.dropdownColor);
 		}
 
 
@@ -274,6 +290,10 @@
     codigo_unico.backgroundPostbar = '#' + temp[17];
     codigo_unico.postColor = '#' + temp[18];
     codigo_unico.linksbarColor = '#' + temp[19];
+	codigo_unico.postLink = '#' + temp[20];
+	codigo_unico.postHover = '#' + temp[21];
+	codigo_unico.backgroundDropdown = '#' + temp[22];
+	codigo_unico.dropdownColor = '#' + temp[23];
 
 		return(codigo_unico);
 	}
@@ -306,9 +326,13 @@
     exocode += codigo_unico.backgroundPostbar;
     exocode += codigo_unico.postColor;
     exocode += codigo_unico.linksbarColor;
+	exocode += codigo_unico.postLink;
+	exocode += codigo_unico.postHover;
+	exocode += codigo_unico.backgroundDropdown;
+	exocode += codigo_unico.dropdownColor;
     }
     else {
-      exocode = "#false#Open Sans,sans-serif#13#333301#333302#333303#333304#333305#333306#333307#333308#333309#333310#333311#333312#333313#333314#333315#333316#333317"
+      exocode = "#false#Open Sans,sans-serif#13#333301#333302#333303#333304#333305#333306#333307#333308#333309#333310#333311#333312#333313#333314#333315#333316#333317#333318#333319#333320#333321"
     }
 		return(exocode);
 	}
@@ -344,6 +368,10 @@
         background_postbar: custom_code.backgroundPostbar || '#333333',
         post_color: custom_code.postColor || '#333333',
         linksbar_color: custom_code.linksbarColor || '#333333',
+				post_link: custom_code.postLink || '#333333',
+				post_hover: custom_code.postHover|| '#333333',
+				background_dropdown: custom_code.backgroundDropdown|| '#333333',
+				dropdown_color: custom_code.dropdownColor|| '#333333',
 				code: print_code(custom_code) || ''
 			}, function (template) {
 
@@ -381,6 +409,10 @@
       background_postbar: user_options.backgroundPostbar || '#333333',
       post_color: user_options.postColor || '#333333',
       linksbar_color: user_options.linksbarColor || '#333333',
+			post_link: user_options.postLink || '#333333',
+			post_hover: user_options.postHover || '#333333',
+				background_dropdown: user_options.backgroundDropdown|| '#333333',
+				dropdown_color: user_options.dropdownColor|| '#333333',
 			code: print_code(user_options) || ''
 		}, function (template) {
 
@@ -450,6 +482,10 @@
             user_options.backgroundPostbar = sanitize($('#background-postbar-input').val());
             user_options.postColor = sanitize($('#post-color-input').val());
             user_options.linksbarColor = sanitize($('#linksbar-color-input').val());
+            user_options.postLink = sanitize($('#post-link-input').val());
+            user_options.postHover = sanitize($('#post-hover-input').val());
+            user_options.backgroundDropdown= sanitize($('#background-dropdown-input').val());
+            user_options.dropdownColor = sanitize($('#dropdown-color-input').val());
 						//user_options.usecode = $('#use-code-check').get(0).checked;
 						user_options.usecode = false;
 						// check font size
