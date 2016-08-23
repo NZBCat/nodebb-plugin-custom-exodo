@@ -66,7 +66,7 @@
 		</div>
 
 		<div class='col-lg-3'>
-			<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>
+			<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Info</a>)</label>
 			<input type="text" value="{font_family}" class="form-control" id="font-family-input" placeholder="Ej. arial">
 		</div>
 		<div class='col-lg-3'>
@@ -213,6 +213,6 @@
 <div class="form-group">
 
 	<label for="brand-color-input">Exocode</label>
-	<input type="text" min="8" max="300" value="{code}" class="form-control" id="code" placeholder="your share code">
+	<input type="text" min="8" max="300" value="{code}" class="form-control" id="code" placeholder="Pega aquí el codigo y pulgar cargar y luego aceptar.">
 
 </div>
