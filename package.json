@@ -1,6 +1,6 @@
 {
-  "name": "nodebb-plugin-custom-topics",
-  "version": "0.2.0",
+  "name": "nodebb-plugin-custom-exodo",
+  "version": "0.2.2",
   "description": "Allows a user to customize forum with theme-exodus",
   "main": "library.js",
   "scripts": {
@@ -27,8 +27,11 @@
   "nbbpm": {
     "compatibility": "^1.1.0"
   },
-  "readme": "",
   "readmeFilename": "README.md",
-  "_id": "nodebb-plugin-custom-topics@0.1.0",
-  "_from": "nodebb-plugin-custom-topics@~0.1.0"
+  "scripts": {
+    "2npm": "publish"
+  },
+  "devDependencies": {
+    "publish": "0.5.0"
+  }
 }

@@ -1,7 +1,7 @@
 {
-	"id": "nodebb-plugin-custom-topics",
-	"name": "Custom Topics",
-	"description": "Allows a user to customize its own topics",
+	"id": "nodebb-plugin-custom-exodo",
+	"name": "Custom forum colors for Nodebb",
+	"description": "Allows a user forum with theme exodus",
 	"url": "https://github.com/Exo-Do/nodebb-plugin-custom-topics",
 	"library": "./lib/library.js",
 	"hooks": [
