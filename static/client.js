@@ -493,7 +493,7 @@
 			window.templates.parse('user_customizer', {
 				topic_title: "Titulo",
 
-        alternative_color: custom_code.alernativeColor || '#333333',
+        alternative_color: custom_code.alternativeColor || '#333333',
         brand_color3: custom_code.brandColor3 || '#333333',
 				brand_color: custom_code.brandColor || '#333333',
 				brand_color2: custom_code.brandColor2 || '#333333',
@@ -554,7 +554,7 @@
 		}
 		window.templates.parse('user_customizer', {
 			topic_title: "Titulo",
-      alternative_color: user_options.alernativeColor || '#333333',
+      alternative_color: user_options.alternativeColor || '#333333',
       brand_color3: user_options.brandColor3 || '#333333',
 			brand_color: user_options.brandColor || '#333333',
 			brand_color2: user_options.brandColor2 || '#333333',
@@ -737,8 +737,7 @@
 
   function user_options_night(){
 
-    var night_code ="#Open Sans,sans-serif#1d1d1d#1d1d1d#ffffff#26292b#0c0c18#5982a7#234999#333333#3b6ca6#5982a7#5982a7#646464#2d2d2d#333333#2d2d2d#5982a7#3b6ca6#3b6ca6#3b6ca6#424242#7a9ab8#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff#ffffff#000000#000000#000000#00ff40";
-
+    var night_code ="#Open Sans,sans-serif#424242#ffffff#7a9ab8#424242#26292b#0c0c18#5982a7#234999#333333#5982a7#3b6ca6#5982a7#646464#2d2d2d#333333#2d2d2d#5982a7#3b6ca6#3b6ca6#3b6ca6#424242#7a9ab8#424242#5982a7#424242#424242#1c1c1c#5982a7#5e8cff#ffffff#999999#2d2d2d#424242#424242#424242#ffffff#ffffff#ffffff";
     return(night_code);
 /*
 
