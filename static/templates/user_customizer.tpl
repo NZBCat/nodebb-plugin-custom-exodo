@@ -3,13 +3,15 @@
 </p>
 <hr>
 
-<h4>Opciones</h4>
+<!--<h4>Opciones</h4>-->
 
+<!--
 <div class="form-group">
 	<div class="checkbox" style="padding: 0;">
 		<input type="checkbox" style="margin: 2px 4px 0px 0px;" id="hide-title-check" <!-- IF hide_title -->checked<!-- ENDIF hide_title -->/> <p style="margin: 2px 4px 0px 20px;">Ocultar t&iacute;tulo del hilo</p>
 	</div>
 </div>
+-->
 
 <h4>General</h4>
 <div class="form-group">
@@ -31,31 +33,9 @@
 			<input type="color" value="{alternative_color}" class="form-control" id="alternative-color-input" placeholder="Ej. #FFFFFF">
 		</div>
 		<div class='col-lg-2'>
-			<label for="brand-color2-input">Fondo barra titulos</label>
-			<input type="color" value="{brand_color2}" class="form-control" id="brand-color2-input" placeholder="Ej. #FFFFFF">
-		</div>
-		<div class='col-lg-2'>
-			<label for="brand-color2-input">Barra titulos</label>
-			<input type="color" value="{brand_color3}" class="form-control" id="brand-color3-input" placeholder="Ej. #FFFFFF">
-		</div>
-		<div class='col-lg-2'>
-			<label for="brand-color-input">Fondo chats/avisos</label>
-			<input type="color" value="{background_modal}" class="form-control" id="background-modal-input" placeholder="Ej. #FFFFFF">
-		</div>
-
-		<div class='col-lg-2'>
 			<label for="brand-color-input">Fondo Foro</label>
 			<input type="color" value="{background_foro}" class="form-control" id="background-foro-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-2'>
-			<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>
-			<input type="text" value="{font_family}" class="form-control" id="font-family-input" placeholder="Ej. arial">
-		</div>
-		<!--<div class='col-lg-2'>
-			<label for="brand-color-input">Tamaño de letra</label>
-			<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="13">
-		</div>
-		-->
 		<div class='col-lg-2'>
 			<label for="brand-color-input">Fondo opciones</label>
 			<input type="color" value="{background_well}" class="form-control" id="background-well-input" placeholder="Ej. #FFFFFF">
@@ -81,8 +61,25 @@
 			<input type="color" value="{tag_color1}" class="form-control" id="tag-color1-input" placeholder="Ej. #FFFFFF">
 		</div>
 		<div class='col-lg-2'>
-			<label for="brand-color-input">Fondo contador etiquetas </label>
+			<label for="brand-color-input">Fondo nº etiquetas </label>
 			<input type="color" value="{tag_color2}" class="form-control" id="tag-color2-input" placeholder="Ej. #FFFFFF">
+		</div>
+
+		<div class='col-lg-3'>
+			<label for="brand-color-input">Tipo de letra (<a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">+ Información</a>)</label>
+			<input type="text" value="{font_family}" class="form-control" id="font-family-input" placeholder="Ej. arial">
+		</div>
+		<div class='col-lg-3'>
+			<label for="brand-color2-input">Fondo barra titulos</label>
+			<input type="color" value="{brand_color2}" class="form-control" id="brand-color2-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-3'>
+			<label for="brand-color2-input">Barra titulos</label>
+			<input type="color" value="{brand_color3}" class="form-control" id="brand-color3-input" placeholder="Ej. #FFFFFF">
+		</div>
+		<div class='col-lg-3'>
+			<label for="brand-color-input">Fondo chats/avisos</label>
+			<input type="color" value="{background_modal}" class="form-control" id="background-modal-input" placeholder="Ej. #FFFFFF">
 		</div>
 	</div>
 </div>
@@ -111,9 +108,17 @@
 			<input type="color" value="{smalllist_color}" class="form-control" id="smalllist-color-input" placeholder="Ej. #FFFFFF">
 		</div>
 		<div class='col-lg-2'>
-			<label for="brand-color-input">Bordes listado de hilos</label>
+			<label for="brand-color-input">Bordes hilos</label>
 			<input type="color" value="{border_topiclist}" class="form-control" id="border-topiclist-input" placeholder="Ej. #FFFFFF">
 		</div>
+
+
+		<!--<div class='col-lg-2'>
+			<label for="brand-color-input">Tamaño de letra</label>
+			<input type="number" min="8" max="28" value="{font_size}" class="form-control" id="font-size-input" placeholder="13">
+		</div>
+		-->
+
 	</div>
 </div>
 <hr>
@@ -146,35 +151,35 @@
 <h4>Mensajes</h4>
 <div class="form-group">
 	<div class="row">
-		<div class='col-lg-2'>
+		<div class='col-lg-3'>
 			<label for="brand-color-input">Fondo caja de texto</label>
 			<input type="color" value="{background_textbox}" class="form-control" id="background-textbox-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-2'>
+		<div class='col-lg-3'>
 			<label for="brand-color-input">Fondo lateral</label>
 			<input type="color" value="{background_postbox}" class="form-control" id="background-postbox-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-2'>
+		<div class='col-lg-3'>
 			<label for="brand-color-input">Fondo barra inferior</label>
 			<input type="color" value="{background_postbar}" class="form-control" id="background-postbar-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-2'>
+		<div class='col-lg-3'>
 			<label for="brand-color-input">Texto</label>
 			<input type="color" value="{post_color}" class="form-control" id="post-color-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-2'>
+		<div class='col-lg-3'>
 			<label for="brand-color-input">Texto barra inferior</label>
 			<input type="color" value="{linksbar_color}" class="form-control" id="linksbar-color-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-2'>
+		<div class='col-lg-3'>
 			<label for="brand-color-input">Texto informacion usuario</label>
 			<input type="color" value="{postdetails_color}" class="form-control" id="postdetails-color-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-2'>
+		<div class='col-lg-3'>
 			<label for="brand-color-input">Enlaces de Mensajes</label>
 			<input type="color" value="{post_link}" class="form-control" id="post-link-input" placeholder="Ej. #FFFFFF">
 		</div>
-		<div class='col-lg-2'>
+		<div class='col-lg-3'>
 			<label for="brand-color-input">Resaltado enlaces de mensajes</label>
 			<input type="color" value="{post_hover}" class="form-control" id="post-hover-input" placeholder="Ej. #FFFFFF">
 		</div>
