@@ -197,8 +197,8 @@
         //text post-details
         style.textContent += '.topic .post-details { color: {postdetailscolor}}';
 
-        //topic lines
-        style.textContent += '.topic .content hr { color: {postcolor} !important;}';
+        //post lines
+        style.textContent += '.topic .content hr { border-top: 1px solid {postcolor};}';
 
         //text barra titulos
         style.textContent += '.panel-default > .panel-heading {color: {color3};}';
@@ -749,7 +749,7 @@
 
       //#true#Open Sans,sans-serif#13#ff0000#646464#804040#8080c0#5982a7#ffff00#ffffff#ff8040#ff0000#ff80c0#552d52#008000#ff8000#808000#ffffff#ffff00#800040#80ffff#408080#ff80c0#8f8f8f#000000#808080#000000#ffffff#408080#ffffff#0000a0#00ff00#d2d2d2#0080ff#ff8000#ff80c0#ffffff#ff0080
       //#true#Open Sans,sans-serif#13#ff0000#646464#804040#8080c0#5982a7#ffff00#ffffff#ff8040#ff0000#ff80c0#552d52#008000#ff8000#808000#ffffff#ffff00#800040#80ffff#408080#ff80c0#8f8f8f#8000ff#808080#00ff00#ffffff#408080#ffffff#0000a0#00ff00#d2d2d2#0080ff#ff8000#ff80c0#ffffff#ff0080#008080#ff0080
-      
+
   }
 
 
