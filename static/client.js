@@ -135,7 +135,7 @@
         style.textContent += '.category .category-topics .threadlisthead .category-item .topic-row {background: {backgroundpostlist};}';
 
 
-        //bg composer
+        //bg modal
         style.textContent += '.modal-content{ background-color: {backgroundmodal};}';
 
         //composer
@@ -143,6 +143,8 @@
         style.textContent += '.composer { background-color: {backgroundcomposer1};}';
         style.textContent += ' html.composing .composer .composer-container { background: {backgroundcomposer1};}';
         style.textContent +=  '.composer .formatting-bar .formatting-group li { color: {composericonscolor};} ';
+        style.textContent +=  '.composer .formatting-bar .formatting-group li { color: {composericonscolor};} ';
+        style.textContent += '.composer .tags-container .bootstrap-tagsinput input { color: {color};}';
 
         //buttons
         style.textContent += '.btn-default, .btn-primary, .btn-danger, .btn-info, .btn-warning {border-left: 5px solid {borderbutton} !important;}';
@@ -194,6 +196,9 @@
         style.textContent += '.links-bar a, .links-bar { color: {linksbarcolor} !important;}';
         //text post-details
         style.textContent += '.topic .post-details { color: {postdetailscolor}}';
+
+        //topic lines
+        style.textContent += '.topic .content hr { color: {postcolor} !important;}';
 
         //text barra titulos
         style.textContent += '.panel-default > .panel-heading {color: {color3};}';
@@ -737,13 +742,14 @@
 
   function user_options_night(){
 
-    var night_code ="#Open Sans,sans-serif#424242#ffffff#7a9ab8#424242#26292b#0c0c18#5982a7#234999#333333#5982a7#3b6ca6#5982a7#646464#2d2d2d#333333#2d2d2d#5982a7#3b6ca6#3b6ca6#3b6ca6#424242#7a9ab8#424242#5982a7#424242#424242#1c1c1c#5982a7#5e8cff#ffffff#999999#2d2d2d#424242#424242#424242#ffffff#ffffff#ffffff";
+    //var night_code ="#Open Sans,sans-serif#424242#ffffff#7a9ab8#424242#26292b#0c0c18#5982a7#234999#333333#5982a7#3b6ca6#5982a7#646464#2d2d2d#333333#2d2d2d#5982a7#3b6ca6#3b6ca6#3b6ca6#424242#7a9ab8#424242#5982a7#424242#424242#1c1c1c#5982a7#5e8cff#ffffff#999999#2d2d2d#424242#424242#424242#ffffff#ffffff#ffffff";
+    var night_code ="#Open Sans,sans-serif#424242#ffffff#7a9ab8#424242#26292b#0c0c18#5982a7#234999#333333#5982a7#3b6ca6#5982a7#b5b5b5#2d2d2d#333333#2d2d2d#5982a7#3b6ca6#3b6ca6#3b6ca6#424242#7a9ab8#424242#5982a7#424242#424242#1c1c1c#5982a7#5e8cff#ffffff#999999#2d2d2d#424242#424242#424242#ffffff#ffffff#ffffff";
     return(night_code);
-/*
 
-      #true#Open Sans,sans-serif#13#ff0000#646464#804040#8080c0#5982a7#ffff00#ffffff#ff8040#ff0000#ff80c0#552d52#008000#ff8000#808000#ffffff#ffff00#800040#80ffff#408080#ff80c0#8f8f8f#000000#808080#000000#ffffff#408080#ffffff#0000a0#00ff00#d2d2d2#0080ff#ff8000#ff80c0#ffffff#ff0080
-      #true#Open Sans,sans-serif#13#ff0000#646464#804040#8080c0#5982a7#ffff00#ffffff#ff8040#ff0000#ff80c0#552d52#008000#ff8000#808000#ffffff#ffff00#800040#80ffff#408080#ff80c0#8f8f8f#8000ff#808080#00ff00#ffffff#408080#ffffff#0000a0#00ff00#d2d2d2#0080ff#ff8000#ff80c0#ffffff#ff0080#008080#ff0080
-      */
+
+      //#true#Open Sans,sans-serif#13#ff0000#646464#804040#8080c0#5982a7#ffff00#ffffff#ff8040#ff0000#ff80c0#552d52#008000#ff8000#808000#ffffff#ffff00#800040#80ffff#408080#ff80c0#8f8f8f#000000#808080#000000#ffffff#408080#ffffff#0000a0#00ff00#d2d2d2#0080ff#ff8000#ff80c0#ffffff#ff0080
+      //#true#Open Sans,sans-serif#13#ff0000#646464#804040#8080c0#5982a7#ffff00#ffffff#ff8040#ff0000#ff80c0#552d52#008000#ff8000#808000#ffffff#ffff00#800040#80ffff#408080#ff80c0#8f8f8f#8000ff#808080#00ff00#ffffff#408080#ffffff#0000a0#00ff00#d2d2d2#0080ff#ff8000#ff80c0#ffffff#ff0080#008080#ff0080
+      
   }
 
 
