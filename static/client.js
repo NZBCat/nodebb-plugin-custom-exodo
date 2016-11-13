@@ -209,7 +209,7 @@
         style.textContent +=  '.dropdown-menu { background-color: {backgrounddropdown};}';
 		    style.textContent +=  '#menu .notification-list li.unread, .header .notification-list li.unread { background-color: {backgrounddropdown};}'; //meterlo en el futuro como opcion
 		    style.textContent +=  '.dropdown-menu li a { color: {dropdowncolor} !important;}';
-		    style.textContent +=  '.dropdown-menu li ul li a{ color: {dropdowncolor} !important;}';
+		    style.textContent +=  '.dropdown-menu li ul li a, .chats-list{ color: {dropdowncolor} !important;}';
 
         //pills
         style.textContent += '.nav>li>a:hover, .nav>li>a:focus {background-color: {backgroundpostlist};}';
