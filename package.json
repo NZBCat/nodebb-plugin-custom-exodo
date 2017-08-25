@@ -1,10 +1,11 @@
 {
-  "name": "nodebb-plugin-custom-exodo",
+  "name": "nodebb-plugin-custom-exodo-nzb",
   "version": "0.2.5",
   "description": "Allows a user to customize forum with theme-exodus",
   "main": "library.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "2npm": "publish",
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,6 @@
     "compatibility": "^1.1.0"
   },
   "readmeFilename": "README.md",
-  "scripts": {
-    "2npm": "publish"
-  },
   "devDependencies": {
     "publish": "0.5.0"
   }
