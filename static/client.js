@@ -34,7 +34,7 @@
 		if(!$("#nav_personalize").length)
 		{
 
-			var $button = $('<li id="nav_personalize" class="hidden-xs"><a href="#"><i class="fa fa-paint-brush"></i><span> Personalizar</span></a></li>');
+			var $button = $('<li id="nav_personalize" class="hidden-xs"><a href="#"><i class="fa fa-paint-brush"></i><span> Personalize</span></a></li>');
 			//var $homebutton = $('<a href="#" id="home_personalize" class="btn btn-primary"><i class="fa fa-paint-brush"></i><span> Personalizar</span></a>');
 			$button.insertBefore($("[component='user/logout']"));
 			//$homebutton.insertBefore($("#new_topic"));
@@ -359,8 +359,8 @@
 				app.alert({
 					type: 'success',
 					timeout: 3000,
-					title: 'Guardado!',
-					message: "Personalización guardada!",
+					title: 'Saved!',
+					message: "Customization Saved!",
 					alert_id: 'customization_ok'
 				});
 			}
@@ -370,7 +370,7 @@
 					type: 'danger',
 					timeout: 3000,
 					title: 'Error',
-					message: "Hubo un error al guardar!",
+					message: "There was an error saving!",
 					alert_id: 'customization_error'
 				});
 			}
@@ -496,7 +496,7 @@
 			//custom_code = make_code(codigo.value);
 
 			window.templates.parse('user_customizer', {
-				topic_title: "Titulo",
+				topic_title: "Title",
 
         alternative_color: custom_code.alternativeColor || '#333333',
         brand_color3: custom_code.brandColor3 || '#333333',
@@ -558,7 +558,7 @@
 			user_options = JSON.parse(localStorage.userCustomization);
 		}
 		window.templates.parse('user_customizer', {
-			topic_title: "Titulo",
+			topic_title: "Title",
       alternative_color: user_options.alternativeColor || '#333333',
       brand_color3: user_options.brandColor3 || '#333333',
 			brand_color: user_options.brandColor || '#333333',
@@ -617,13 +617,13 @@
 
 	function buildUserCustomizationDialog(template) {
 		return bootbox.dialog({
-			title: 'Personalizar',
+			title: 'Personalize',
       className: "personalize",
       size: "large",
 			message: template,
 			buttons: {
 				"code": {
-					label: 'Cargar Codigo',
+					label: 'Upload Code',
 					className: 'btn-default',
 					callback: function(e) {
 
@@ -636,7 +636,7 @@
 					}
 				},
 				"default": {
-					label: 'Usar colores por defecto',
+					label: 'Default Colors',
 					className: 'btn-default',
 					callback: function (e) {
             user_options_default();
@@ -646,7 +646,7 @@
 					}
 				},
         "night": {
-					label: 'Modo noche',
+					label: 'Night Mode',
 					className: 'btn-default',
 					callback: function (e) {
             var codestring = user_options_night();
@@ -661,7 +661,7 @@
 					}
 				},
 				cancel: {
-					label: 'Cancelar',
+					label: 'Cancel',
 					className: 'btn-danger',
 					callback: function (e) {
 						getUserCustomization();
@@ -669,7 +669,7 @@
 					}
 				},
 				save: {
-					label: 'Aceptar',
+					label: 'Accept',
 					className: 'btn-primary',
 					callback: function (e) {
 						//user_options.headerImage = sanitize($('#header-image-input').val());
